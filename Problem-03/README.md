@@ -1,4 +1,4 @@
-#coding-problem-series-003
+# coding-problem-series-003
 Don’t refer AI, use any language, commit to your DevOps
 
 Given a binary tree, find a minimum path sum from root to a leaf.
