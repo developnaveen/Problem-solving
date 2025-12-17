@@ -1,0 +1,2 @@
+Hello using BufferedWriter!
+This writes text efficiently.

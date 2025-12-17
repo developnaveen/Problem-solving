@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:batch="http://www.springframework.org/schema/batch"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/batch
+        https://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <!-- ================================================= -->
+    <!-- JOB : DailyUserImportJob -->
+    <!-- ================================================= -->
+    <batch:job id="DailyUserImportJob">
+
+        <batch:step id="checkFileStep" next="moveFileStep">
+            <batch:tasklet ref="checkFileTasklet"/>
+        </batch:step>
+
+        <batch:step id="moveFileStep" next="importCsvStep">
+            <batch:tasklet ref="moveFileTasklet"/>
+        </batch:step>
+
+        <batch:step id="importCsvStep" next="sendEmailStep">
+            <batch:tasklet>
+                <batch:chunk reader="userItemReader"
+                             processor="userItemProcessor"
+                             writer="userItemWriter"
+                             commit-interval="100"/>
+            </batch:tasklet>
+        </batch:step>
+
+        <batch:step id="sendEmailStep">
+            <batch:tasklet ref="sendEmailTasklet"/>
+        </batch:step>
+
+    </batch:job>
+
+
+    <!-- ================================================= -->
+    <!-- TASKLETS -->
+    <!-- ================================================= -->
+    <bean id="checkFileTasklet"
+          class="com.example.springbatch.tasklet.CheckFileTasklet"/>
+
+    <bean id="moveFileTasklet"
+          class="com.example.springbatch.tasklet.MoveFileTasklet"/>
+
+    <bean id="sendEmailTasklet"
+          class="com.example.springbatch.tasklet.SendEmailTasklet"/>
+
+    <!-- ================================================= -->
+    <!-- CHUNK COMPONENTS -->
+    <!-- ================================================= -->
+
+    <!-- CSV READER -->
+    <bean id="userItemReader"
+          class="org.springframework.batch.item.file.FlatFileItemReader">
+        <property name="resource" value="file:C:/Problem/task/Jobs/springbatch/springbatch/src/main/java/com/example/springbatch/users.csv"/>
+        <property name="linesToSkip" value="1"/>
+
+        <property name="lineMapper">
+            <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+                <property name="lineTokenizer">
+                    <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+                        <property name="delimiter" value=","/>
+                        <property name="names" value="id,name,email"/>
+                    </bean>
+                </property>
+                <property name="fieldSetMapper">
+                    <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+                        <property name="targetType"
+                                  value="com.example.springbatch.domain.User"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- PROCESSOR -->
+    <bean id="userItemProcessor"
+          class="com.example.springbatch.processor.UserItemProcessor"/>
+
+    <!-- WRITER -->
+    <bean id="userItemWriter"
+          class="org.springframework.batch.item.database.JdbcBatchItemWriter">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="sql">
+            <value>
+                INSERT INTO users(id, name, email)
+                VALUES (:id, :name, :email)
+            </value>
+        </property>
+        <property name="itemSqlParameterSourceProvider">
+            <bean class="org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider"/>
+        </property>
+    </bean>
+
+</beans>

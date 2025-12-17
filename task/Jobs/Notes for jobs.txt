@@ -1,0 +1,234 @@
+Why companies avoid @EnableScheduling
+
+Reason				Explanation
+
+Limited control		Hard to pause/change
+No clustering		Multiple instances conflict
+No persistence		Jobs lost on restart
+Hard to test		Tightly coupled
+Not dynamic			Requires redeploy
+
+Job
+ └── Step
+      ├── Tasklet
+      └── Chunk (Reader → Processor → Writer)
+	  
+What is a Step? (Core idea)
+A Step is a single, independent phase of a Job.
+
+A Job does nothing by itself.
+It executes Steps, one after another.
+
+Job
+ ├── Step 1
+ ├── Step 2
+ └── Step 3
+
+Simple one-line definitions
+Job
+A Job is the complete batch process from start to end.
+
+Tasklet
+A Tasklet is a step that performs one specific task.
+
+Chunk
+Chunk processing is a step that processes large data in pieces.
+
+
+Detailed Comparison Table (Interview Gold)
+Aspect				Job					Tasklet				Chunk
+Purpose				Whole batch flow	Single task			Large data processing
+Level				Top-level			Step implementation	Step implementation
+Contains			Steps				Logic				Reader, Processor, Writer
+Execution			Once per run		Once / loop			Repeated in chunks
+Data size			N/A					Small				Large
+Transaction			Across steps		One transaction		Per chunk
+Restartability		Job-level			Manual				Automatic
+Failure recovery	Rerun job			Custom				Built-in
+Best for			Orchestration		Admin / utility		ETL / migration
+Scalability			Orchestration		Low					High
+
+
+Build ONE complete batch job (non-negotiable)
+Practice
+1 Job
+3–4 Steps
+Mix of Tasklet + Chunk
+
+Example
+Job: DailyUserImportJob
+ ├─ Step 1: Tasklet – check file exists
+ ├─ Step 2: Tasklet – move file
+ ├─ Step 3: Chunk – CSV → DB
+ └─ Step 4: Tasklet – send email
+ 
+ 
+Chunk restartability (VERY IMPORTANT)
+Do this experiment:
+Process 1,000 records
+Fail at record 450
+Restart job
+Verify it resumes from 451
+If you haven’t done this, you haven’t “learned” Spring Batch.
+
+Chunk size tuning (hands-on)
+Run the same job with:
+chunk(10)
+chunk(100)
+chunk(1000)
+
+Observe:
+Commit frequency
+Performance
+Memory usage
+
+Interviewers ask:
+
+“How do you choose chunk size?”
+
+JobParameters (practical, not theory)
+Practice:
+--input.file=users.csv
+
+
+Learn:
+Why same job doesn’t rerun without new params
+How JobInstance is created
+
+Failure handling (mandatory)
+Practice:
+Exception in processor
+Skip
+Retry
+
+.faultTolerant()
+.skip(Exception.class)
+.skipLimit(10)
+
+This is production survival skill.
+
+Parallel processing (bonus but powerful)
+At least try one:
+Partitioned step
+Multi-threaded step
+Even basic exposure gives confidence.
+
+Database tables understanding (don’t skip)
+Actually look at the tables:
+BATCH_JOB_INSTANCE
+BATCH_JOB_EXECUTION
+BATCH_STEP_EXECUTION
+
+Query them:
+select * from BATCH_STEP_EXECUTION;
+This makes restart logic click 💡.
+
+
+Logging & monitoring
+Practice:
+StepExecutionListener
+JobExecutionListener
+
+Know:
+readCount
+writeCount
+skipCount
+
+Minimum practical checklist (copy this)
+
+If you can confidently say YES to all, you are ready:
+ I built a full job with multiple steps
+ I used both tasklet and chunk
+ I restarted a failed chunk job
+ I handled skip/retry
+ I passed JobParameters
+ I inspected batch tables
+ 
+ 
+ JVM
+└── Application (Spring Boot / Core Java)
+    ├── Main Thread
+    │   └── Application Startup
+    │       └── JobLauncher
+    │           └── Job
+    │               ├── Step 1 (Tasklet)
+    │               │   └── Single Thread
+    │               │       └── Tasklet Logic
+    │               │
+    │               ├── Step 2 (Tasklet)
+    │               │   └── Single Thread
+    │               │       └── Tasklet Logic
+    │               │
+    │               └── Step 3 (Chunk)
+    │                   ├── Step Thread
+    │                   │   ├── ItemReader
+    │                   │   ├── ItemProcessor
+    │                   │   ├── ItemWriter
+    │                   │   └── Transaction (per chunk)
+    │                   │
+    │                   └── (Optional)
+    │                       └── Thread Pool
+    │                           ├── Worker Thread 1
+    │                           ├── Worker Thread 2
+    │                           └── Worker Thread N
+
+
+
+
+SpringbatchApplication (main)
+│
+└── SpringApplication.run()
+    │
+    └── Spring Boot Auto Configuration
+        │
+        └── Spring Batch Auto Configuration
+            │
+            ├── JobRepository
+            ├── JobLauncher
+            └── JobRegistry
+                │
+                └── DailyUserImportJob
+                    │
+                    ├── Step 1: checkFileStep
+                    │   │
+                    │   └── CheckFileTasklet.execute()
+                    │
+                    ├── Step 2: moveFileStep
+                    │   │
+                    │   └── MoveFileTasklet.execute()
+                    │
+                    ├── Step 3: importCsvStep (CHUNK)
+                    │   │
+                    │   ├── ItemReader.read()
+                    │   │   └── FlatFileItemReader
+                    │   │
+                    │   ├── ItemProcessor.process()
+                    │   │   └── UserItemProcessor
+                    │   │
+                    │   └── ItemWriter.write()
+                    │       └── JdbcBatchItemWriter
+                    │
+                    └── Step 4: sendEmailStep
+                        │
+                        └── SendEmailTasklet.execute()
+
+
+
+config/
+ └── BatchConfig.java
+     └── defines Job + Steps
+
+tasklet/
+ ├── CheckFileTasklet.java
+ ├── MoveFileTasklet.java
+ └── SendEmailTasklet.java
+
+chunk/
+ ├── UserItemReader (bean)
+ ├── UserItemProcessor.java
+ └── UserItemWriter (bean)
+
+domain/
+ └── User.java
+
+
