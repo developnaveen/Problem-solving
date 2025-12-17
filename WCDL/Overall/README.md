@@ -1,67 +1,104 @@
 # WCDL – Working Capital Demand Loan
 
-## Types of Loans
+---
+
+## 1. Types of Loans
 
 - Personal Loans
 - Business Loans
   - Term Loan
   - Working Capital Loan
   - MSME Loans (Micro, Small, and Medium Enterprises)
-- etc.
+- Others
 
 ---
 
-## What is WCDL?
+## 2. Mental Model (Backend Developer View)
 
-**Working Capital Demand Loan (WCDL)** is a loan provided to businesses to support
-day-to-day operational expenses and ensure smooth business continuity.
+> **Loan = State Machine + Math + Dates + Rules**
+
+As a backend developer, a loan system mainly involves:
+- State transitions (Created → Active → Closed)
+- Interest and repayment calculations
+- Date-based events (tenure, overdue, NPA)
+- Strict business validations
 
 ---
 
-## Types of Working Capital Facilities
+## 3. What is WCDL?
+
+**Working Capital Demand Loan (WCDL)** is a short-term loan provided to businesses
+to meet day-to-day operational expenses and maintain liquidity.
+
+Key characteristics:
+- Used for working capital needs
+- Fixed tenure (usually short-term)
+- Interest charged on outstanding principal
+- Often created by converting part of a Cash Credit (CC) limit
+
+---
+
+## 4. Types of Working Capital Facilities
 
 - Cash Credit (CC)
 - Overdraft (OD)
-- Short-Term Working Capital Loan
+- Working Capital Demand Loan (WCDL)
 
 ---
 
-## Cash Credit (CC)
+## 5. Cash Credit (CC)
 
-- Involves **two accounts**:
-  - Cash Credit Account
-  - Current Account
-- Funds can be withdrawn as per business requirement
-- Interest is charged only on the utilized amount
+- Operates through a **Cash Credit account**
+- Usually linked to a **Current Account** for operations
+- Allows flexible withdrawal up to a sanctioned limit
+- Interest is charged **only on the amount utilized**
+- Commonly secured by inventory and receivables
 
----
-
-## Overdraft (OD)
-
-- Involves **one account**:
-  - Current Account
-- Account balance can go into **negative (minus)** balance
-- Interest is calculated only on the **overdrawn (negative) amount**
-- Example limit: ₹1 lakh per week (varies by bank)
+> Backend note: CC is balance-driven and interest is calculated daily.
 
 ---
 
-## MSME Loans
+## 6. Overdraft (OD)
+
+- Operates through a **Current Account**
+- Account balance is allowed to go into **negative (overdraft)**
+- Interest is calculated only on the **overdrawn amount**
+- Overdraft limit is sanctioned by the bank (varies by customer)
+
+> Backend note: OD logic is similar to CC but without stock-based drawing power.
+
+---
+
+## 7. MSME Loans
 
 - Loan amount is disbursed as a **lump sum**
-- More formal documentation process
-- Interest is calculated for the **entire tenure period**
-- Suitable for small and medium enterprises
+- Fixed tenure with scheduled repayments
+- More formal documentation and compliance
+- Interest calculated for the **entire loan tenure**
+- Designed for Micro, Small, and Medium Enterprises
 
 ---
 
-## Table
+## 8. Comparison: CC vs OD vs WCDL
 
-| Feature |	CC | OD |	WCDL |
-| Nature |	Revolving |	Revolving |	Term-like |
-| Disbursement |	As needed	| As needed |	Lump sum |
-| Tenure	| 1 year (renewable)	| 1 year |	Short fixed |
-| Interest	| Daily usage	| Daily usage |	Outstanding |
-| Account	| CC account	| Current	| Loan account |
+| Feature        | CC                     | OD                     | WCDL                    |
+|----------------|------------------------|------------------------|-------------------------|
+| Nature         | Revolving              | Revolving              | Term-like               |
+| Disbursement   | As needed              | As needed              | Lump sum                |
+| Tenure         | 1 year (renewable)     | 1 year                 | Short fixed tenure      |
+| Interest Basis | Daily utilized balance | Daily overdrawn amount | Outstanding principal   |
+| Account Type   | CC account             | Current account        | Loan account            |
+| EMI Schedule   | No                     | No                     | Yes / Scheduled         |
+
+---
+
+## 9. Key Takeaway
+
+- **CC / OD** → Flexible, balance-based facilities  
+- **WCDL** → Structured, tenure-based loan  
+- Backend systems must handle:
+  - Interest accrual
+  - Repayment schedules
+  - Status transitions (Active, Overdue, NPA)
 
 ---
