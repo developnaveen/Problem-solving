@@ -22,6 +22,13 @@ Java, Spring Boot, Spring Batch, and Angular.
 - Angular
 - Maven
 - Git & GitHub
+# Naveen 
+## Kannan
+### Kumar
+_ **hello**
+_ ***hello***
+- **hello**
+- ***hello***
 
 ## ▶️ How to Run
 
@@ -29,11 +36,4 @@ Java, Spring Boot, Spring Batch, and Angular.
 ```bash
 mvn spring-boot:run
  
-# Naveen 
-## Kannan
-### Kumar
-_ ** hello
-_ *** hello
-- ** hello
-- *** hello
 
