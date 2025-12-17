@@ -34,6 +34,14 @@ Java, Spring Boot, Spring Batch, and Angular.
 
 ## ▶️ How to Run
 
+<details>
+<summary>Click to expand</summary>
+
+Hidden content here
+
+</details>
+
+
 ### Spring Batch
 ```bash
 mvn spring-boot:run
