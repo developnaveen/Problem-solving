@@ -1,38 +1,156 @@
-# Problem Solving Repository
+# Markdown README Reference
 
-This repository contains practice projects and experiments related to
-Java, Spring Boot, Spring Batch, and Angular.
+This file is a reusable reference for writing README.md files using Markdown.
 
-## 📂 Projects
+---
 
-- **Spring Batch**
-  - Tasklets
-  - ItemProcessor
-  - Job configuration
+## Headings
 
-- **Angular Practice**
-  - Angular fundamentals
-  - UI experiments
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
 
-## 🛠️ Technologies Used
+---
 
-- Java
-- Spring Boot
-- Spring Batch
-- Angular
-- Maven
-- Git & GitHub
-# Naveen 
-## Kannan
-### Kumar
-#### Kumar
-##### Kumar
-- **hello**
-- ***hello***
-- **hello**
-- ***hello***
+## Text Formatting
 
-## ▶️ How to Run
+**Bold text**
+*Italic text*
+***Bold and Italic text***
+~~Strikethrough text~~
+
+---
+
+## Lists
+
+### Unordered List
+- Item One
+- Item Two
+  - Sub Item
+  - Sub Item
+
+### Ordered List
+1. First
+2. Second
+3. Third
+
+---
+
+## Links
+
+[GitHub](https://github.com)
+
+---
+
+## Images
+
+![Alt Text](image-url.png)
+
+---
+
+## Inline Code
+
+Use `git status` to check status
+
+---
+
+## Bash Code Block
+
+```bash
+git status
+git add .
+git commit -m "message"
+git push
+```
+
+---
+
+## Java Code Block
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+```
+
+---
+
+## Other Code Blocks
+
+```json
+{
+  "name": "project"
+}
+```
+
+```html
+<h1>Hello</h1>
+```
+
+```css
+body {
+  background-color: white;
+}
+```
+
+---
+
+## Blockquote
+
+> This is a blockquote
+
+---
+
+## Horizontal Line
+
+---
+
+## Table
+
+| Name | Tech | Status |
+|-----|------|--------|
+| App | Angular | Done |
+| API | Spring | In Progress |
+
+---
+
+## Task List
+
+- [x] Setup project
+- [ ] Write README
+- [ ] Deploy
+
+---
+
+## Emojis
+
+🚀 ✅ ❌ 📌 🛠️
+
+---
+
+## Escaping Characters
+
+\*Not italic\*
+\# Not a heading
+
+---
+
+## Folder Structure
+
+```
+src/
+ ├── main/
+ └── test/
+```
+
+---
+
+## Collapsible Section
 
 <details>
 <summary>Click to expand</summary>
@@ -41,9 +159,26 @@ Hidden content here
 
 </details>
 
+---
 
-### Spring Batch
+## README Template
+
+# Project Name
+
+## Description
+Project description goes here
+
+## Technologies
+- Java
+- Spring Boot
+- Angular
+
+## How to Run
+
 ```bash
-mvn spring-boot:run
- 
+npm install
+ng serve
+```
 
+## Author
+Your Name
