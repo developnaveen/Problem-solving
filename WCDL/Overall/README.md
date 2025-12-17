@@ -1,39 +1,56 @@
-# WCDL - WORKING CAPITAL DEMAND LOAN
-## Lists
-### TYPES OF LOANS
-    - Personal loans
-    - Business loans
-        - Term loan 
-        - working capital loan
-        - MSME loans (Micro, Small, and Medium Enterprises (MSMEs))
-    - etc..
+# WCDL – Working Capital Demand Loan
+
+## Types of Loans
+
+- Personal Loans
+- Business Loans
+  - Term Loan
+  - Working Capital Loan
+  - MSME Loans (Micro, Small, and Medium Enterprises)
+- etc.
+
 ---
 
-# WHAT IS WCDL
-        working captital is providing an loan for the business operations, to keep the business alive.
-## Lists
-### TYPES OF WORKING CAPITAL 
-    - CASH CREDIT   
-    - OVER DRAFT
-    - SHORT TERM WC LOAN
+## What is WCDL?
+
+**Working Capital Demand Loan (WCDL)** is a loan provided to businesses to support
+day-to-day operational expenses and ensure smooth business continuity.
+
 ---
 
-# CASH CREDIT   
-    - two accounts
-        - cash credit account
-        - current account
+## Types of Working Capital Facilities
 
-# OVER DRAFT
-    - one account
-        - current account
-    - Goes on minues so the intest can be calculated on the minues amount
-    - limit 1L per week
-    - interest calculated on the minus amount
+- Cash Credit (CC)
+- Overdraft (OD)
+- Short-Term Working Capital Loan
 
-# MSME LOANS
-    - lumpsum (fullamount)
-    - more formal
-    - interest on tenure period 
+---
 
+## Cash Credit (CC)
 
+- Involves **two accounts**:
+  - Cash Credit Account
+  - Current Account
+- Funds can be withdrawn as per business requirement
+- Interest is charged only on the utilized amount
 
+---
+
+## Overdraft (OD)
+
+- Involves **one account**:
+  - Current Account
+- Account balance can go into **negative (minus)** balance
+- Interest is calculated only on the **overdrawn (negative) amount**
+- Example limit: ₹1 lakh per week (varies by bank)
+
+---
+
+## MSME Loans
+
+- Loan amount is disbursed as a **lump sum**
+- More formal documentation process
+- Interest is calculated for the **entire tenure period**
+- Suitable for small and medium enterprises
+
+---
