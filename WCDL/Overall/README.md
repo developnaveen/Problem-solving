@@ -55,9 +55,13 @@ day-to-day operational expenses and ensure smooth business continuity.
 
 ---
 
+## Table
+
 | Feature |	CC | OD |	WCDL |
 | Nature |	Revolving |	Revolving |	Term-like |
 | Disbursement |	As needed	| As needed |	Lump sum |
 | Tenure	| 1 year (renewable)	| 1 year |	Short fixed |
 | Interest	| Daily usage	| Daily usage |	Outstanding |
 | Account	| CC account	| Current	| Loan account |
+
+---
