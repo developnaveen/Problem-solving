@@ -110,7 +110,7 @@ From a system perspective:
 - Ensure **atomic transaction**
 ---
 
-# 🏦 WCDL Loan Flow – Backend Developer Story
+# 🏦 WCDL Loan Flow – Story
 
 This document explains the **end-to-end flow of a Working Capital Demand Loan (WCDL)**
 from a **backend system perspective**, highlighting where each banking and technical
