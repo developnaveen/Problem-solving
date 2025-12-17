@@ -25,8 +25,8 @@ Java, Spring Boot, Spring Batch, and Angular.
 # Naveen 
 ## Kannan
 ### Kumar
-_ **hello**
-_ ***hello***
+- **hello**
+- ***hello***
 - **hello**
 - ***hello***
 
