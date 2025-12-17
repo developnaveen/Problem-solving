@@ -7,7 +7,7 @@
         - MSME loans (Micro, Small, and Medium Enterprises (MSMEs))
 ---
 
-## WHAT IS WCDL
+# WHAT IS WCDL
         working captital is providing an loan for the business operations, to keep the business alive.
 ---
 
