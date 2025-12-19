@@ -18,21 +18,6 @@ DSA
 DSA
 ---
 
-## 🏦 Banking & Domain Projects
-
-### 📁 `WCDL`
-Working Capital Demand Loan (WCDL) related content.
-
-Includes:
-- Business stories
-- Workflow explanations
-- Backend and system-level understanding
-- Banking domain concepts
-
-This folder is mainly used for **domain learning and documentation**.
-
----
-
 ## 🌐 Frontend Practice
 
 ### 📁 `angular practice`
