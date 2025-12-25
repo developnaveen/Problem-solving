@@ -35,6 +35,7 @@ Includes:
 
 ## ☕ Java & Core Programming
 
+### 📁 `Practice`
 ### 📁 `funprogram`
 Contains Java programs used for:
 - QR CODE 
