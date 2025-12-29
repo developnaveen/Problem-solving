@@ -4,6 +4,9 @@ This document explains **hashing, encryption (encoding), and decryption (decodin
 using commonly used security algorithms such as **BCrypt, AES-GCM, and RSA-OAEP**.
 
 ---
+## sonar qube test
+
+[Sonar Qube](https://demo.fingress.com/analyze/dashboard?id=encode-decode)
 
 ## 🔹 Hashing
 
