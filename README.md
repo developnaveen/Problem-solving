@@ -2,20 +2,9 @@
 
 ## 🧠 Problem-Solving Modules
 
-### 📁 `Problem-01`
-DSA
+### 📁 `DSA`
+Tree and Graph Problems  
 
-### 📁 `Problem-02`
-DSA
-
-### 📁 `Problem-03`
-DSA
-
-### 📁 `Problem-04`
-DSA
-
-### 📁 `Problem-06`
-DSA
 ---
 
 ## 🌐 Frontend Practice
