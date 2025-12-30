@@ -6,6 +6,11 @@
   <version>1.0-SNAPSHOT</version>
   <name>Archetype - untitled</name>
   <url>http://maven.apache.org</url>
+    <properties>
+        <sonar.coverage.jacoco.xmlReportPaths>
+            target/site/jacoco/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
+    </properties>
     <dependencies>
     <dependency>
         <groupId>de.svenkubiak</groupId>
@@ -38,12 +43,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.0</version> <!-- 2025 Recommended Version -->
+                <version>3.4.0</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <!-- REPLACE THIS with your actual Main Class name -->
                             <mainClass>org.example.crypto.CryptoTool</mainClass>
                         </manifest>
                     </archive>
@@ -69,6 +73,35 @@
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.10.0.2594</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.11</version>
+
+                <executions>
+                    <!-- Attach JaCoCo agent during tests -->
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+
+                    <!-- Generate XML report after tests -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
