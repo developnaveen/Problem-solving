@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog">
+
+    <changeSet id="001" author="naveen">
+        <createTable tableName="bank_offer">
+            <column name="offer_id" type="VARCHAR(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="offer_name" type="VARCHAR(100)"/>
+            <column name="product_type" type="VARCHAR(50)"/>
+            <column name="customer_type" type="VARCHAR(50)"/>
+            <column name="min_loan_amount" type="VARCHAR(20)"/>
+            <column name="max_loan_amount" type="VARCHAR(20)"/>
+            <column name="tenure" type="VARCHAR(20)"/>
+            <column name="interest_rate" type="VARCHAR(10)"/>
+            <column name="interest_rate_type" type="VARCHAR(10)"/>
+            <column name="credit_score" type="VARCHAR(10)"/>
+            <column name="offer_valid_from" type="DATE"/>
+            <column name="offer_valid_to" type="DATE"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
