@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35beb72d-0071-4078-abcb-2abc47a6bcb0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/OfferService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/config/ConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/config/ConnectionProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/OfferDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/OfferDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/OfferDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/OfferDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/OfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/OfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/OfferServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/OfferServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/servlet/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/servlet/OfferServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/servlet/OfferServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/liquibase.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/liquibase.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/dao/OfferDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/dao/OfferDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/dao/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/dao/UserDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/model/OfferTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/model/OfferTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/model/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/model/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/service/OfferServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/service/OfferServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/service/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/service/UserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/LoginServletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/LoginServletTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/OfferServletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/OfferServletTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/util/HashingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/util/HashingTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$PROJECT_DIR$/../../xampp/php/php.exe" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:/xampp/php/php.exe" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -86,6 +93,9 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Problem\sampleservlet\src\main\resources\db" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.sampleservlet" />
     </key>
   </component>
   <component name="RunManager">
@@ -174,6 +184,13 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="35beb72d-0071-4078-abcb-2abc47a6bcb0" name="Changes" comment="" />
@@ -183,11 +200,30 @@
       <updated>1767072272454</updated>
       <workItem from="1767290330309" duration="14000" />
       <workItem from="1767290396547" duration="5510000" />
+      <workItem from="1767366488387" duration="5951000" />
+      <workItem from="1767383808336" duration="2881000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

@@ -1,0 +1,83 @@
+2026-01-03 00:19:50 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:19:51 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@49925d21
+2026-01-03 00:19:51 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 00:24:15 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:24:16 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@49925d21
+2026-01-03 00:24:16 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 00:30:40 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:30:41 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e8afc2d
+2026-01-03 00:30:41 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 00:30:56 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:30:56 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e8afc2d
+2026-01-03 00:30:56 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 00:33:47 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:33:48 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@3275a47f
+2026-01-03 00:33:48 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 00:36:39 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:36:40 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@3275a47f
+2026-01-03 00:36:40 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 00:54:28 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:54:28 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@651caa2e
+2026-01-03 00:54:28 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 00:56:02 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 00:56:03 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@651caa2e
+2026-01-03 00:56:03 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 01:19:03 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 01:19:04 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@651caa2e
+2026-01-03 01:19:04 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 01:27:09 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 01:27:10 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@651caa2e
+2026-01-03 01:27:10 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 01:30:11 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 01:30:12 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@433ae0b0
+2026-01-03 01:30:12 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 01:36:31 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 01:36:32 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@651caa2e
+2026-01-03 01:36:32 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 01:42:12 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 01:42:13 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@651caa2e
+2026-01-03 01:42:13 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 01:45:38 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 01:45:39 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f6ff62
+2026-01-03 01:45:39 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 02:00:55 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 02:00:56 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@4780341
+2026-01-03 02:00:56 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 02:00:57 INFO  c.e.s.servlet.LoginServlet - Entered in to login url of get
+2026-01-03 02:00:57 INFO  c.e.s.servlet.LoginServlet - Steped of login url of get
+2026-01-03 02:00:57 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-03 02:00:57 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-03 02:00:57 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-03 02:00:57 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-03 02:00:57 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-03 02:00:57 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-03 02:12:19 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 02:12:20 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@31e3c34
+2026-01-03 02:12:20 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 02:12:21 INFO  c.e.s.servlet.LoginServlet - Entered in to login url of get
+2026-01-03 02:12:21 INFO  c.e.s.servlet.LoginServlet - Steped of login url of get
+2026-01-03 02:12:21 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-03 02:12:21 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-03 02:12:21 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-03 02:12:21 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-03 02:12:21 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-03 02:12:21 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-03 02:12:21 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-03 02:12:21 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-03 02:12:21 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-03 02:12:21 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-03 02:13:54 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
+2026-01-03 02:13:55 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@39342614
+2026-01-03 02:13:55 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
+2026-01-03 02:13:56 INFO  c.e.s.servlet.LoginServlet - Entered in to login url of get
+2026-01-03 02:13:56 INFO  c.e.s.servlet.LoginServlet - Steped of login url of get
+2026-01-03 02:13:56 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-03 02:13:56 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-03 02:13:56 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-03 02:13:56 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-03 02:13:56 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-03 02:13:56 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-03 02:13:56 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-03 02:13:56 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-03 02:13:56 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-03 02:13:56 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET

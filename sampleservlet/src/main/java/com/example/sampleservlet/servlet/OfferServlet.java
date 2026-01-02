@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import com.example.sampleservlet.dao.OfferDao;
+import com.example.sampleservlet.dao.OfferDaoImpl;
 import com.example.sampleservlet.model.Offer;
 import com.example.sampleservlet.service.OfferServiceImpl;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -37,8 +37,8 @@ public class OfferServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
-        OfferDao offerDao = new OfferDao();
-        this.offerServiceImpl = new OfferServiceImpl();
+        OfferDaoImpl offerDao = new OfferDaoImpl();
+        this.offerServiceImpl = new OfferServiceImpl(offerDao);
     }
 
     @Override

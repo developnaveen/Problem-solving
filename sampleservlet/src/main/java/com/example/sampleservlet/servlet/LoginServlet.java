@@ -3,6 +3,7 @@ package com.example.sampleservlet.servlet;
 import com.example.sampleservlet.dao.UserDao;
 import com.example.sampleservlet.model.User;
 import com.example.sampleservlet.service.UserServiceImpl;
+import com.example.sampleservlet.util.Hashing;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,7 +26,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     public void init() {
         UserDao userDao = new UserDao();
-        this.userServiceImpl = new UserServiceImpl(userDao);
+        Hashing hashing = new Hashing();
+        this.userServiceImpl = new UserServiceImpl(userDao, hashing);
     }
 
     @Override

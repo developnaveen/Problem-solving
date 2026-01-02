@@ -3,10 +3,7 @@ package com.example.sampleservlet.dao;
 import com.example.sampleservlet.config.ConnectionProvider;
 import com.example.sampleservlet.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDao {
 
@@ -32,6 +29,8 @@ public class UserDao {
 
             ps.executeUpdate(); // 🔑
 
+        } catch (SQLIntegrityConstraintViolationException e){
+            throw new RuntimeException("User already exists");
         } catch (SQLException e) {
             throw new RuntimeException("Error saving user", e);
         }
@@ -63,5 +62,20 @@ public class UserDao {
         }
         return null;
     }
+
+    public void deleteUserByEmpId(String empId) {
+        String sql = "DELETE FROM users WHERE emp_id = ?";
+
+        try (
+                Connection con = ConnectionProvider.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)
+        ) {
+            ps.setString(1, empId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting test user", e);
+        }
+    }
+
 
 }

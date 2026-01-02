@@ -1,18 +1,21 @@
 package com.example.sampleservlet.service;
 
-
 import com.example.sampleservlet.dao.OfferDao;
 import com.example.sampleservlet.model.Offer;
 
 import java.util.List;
 
 public class OfferServiceImpl implements OfferService {
-    private OfferDao offerDao = new OfferDao();
+
+    private final OfferDao offerDao;
+
+    public OfferServiceImpl(OfferDao offerDao) {
+        this.offerDao = offerDao;
+    }
 
     @Override
     public String offerUpload(Offer offer) {
         return offerDao.saveOffer(offer);
-
     }
 
     @Override
@@ -21,17 +24,13 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
-    public Offer getOfferById(String id) {
-        return null;
-    }
-
-    @Override
-    public String deleteOffer(String id){
+    public String deleteOffer(String id) {
         return offerDao.deleteOffer(id);
     }
 
     @Override
-    public String updateOffer(Offer offer){
+    public String updateOffer(Offer offer) {
         return offerDao.updateOffer(offer);
     }
+
 }
