@@ -18,14 +18,23 @@ public class ConnectionProvider {
         config.setMaximumPoolSize(10);
         config.setMinimumIdle(2);
         config.setPoolName("Naveen Hikari pool");
+        
 
         dataSource = new HikariDataSource(config);
+        
+        
     }
 
     private ConnectionProvider(){}
 
     public static Connection getConnection() throws SQLException {
         return dataSource.getConnection();
+    }
+    
+    public static void closeConnection() {
+    	if(dataSource instanceof HikariDataSource) {
+    		((HikariDataSource) dataSource).close();
+    	}
     }
 }
 
