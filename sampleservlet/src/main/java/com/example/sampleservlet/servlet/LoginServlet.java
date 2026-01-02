@@ -3,17 +3,25 @@ package com.example.sampleservlet.servlet;
 import com.example.sampleservlet.dao.UserDao;
 import com.example.sampleservlet.model.User;
 import com.example.sampleservlet.service.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Map;
 
 @WebServlet("/user")
 public class LoginServlet extends HttpServlet {
 
+    private static final Logger log = LoggerFactory.getLogger(LoginServlet.class);
     private UserService userService;
+    private final ObjectMapper mapper =
+            new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @Override
     public void init() {
@@ -23,6 +31,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        log.error("🔥🔥🔥 LOGIN SERVLET NEW VERSION RUNNING 🔥🔥🔥");
+
+        log.info("Content-Type: {}", req.getContentType());
+        log.info("User creation request received");
 
         res.setContentType("application/json");
         res.setCharacterEncoding("UTF-8");
@@ -30,35 +42,49 @@ public class LoginServlet extends HttpServlet {
         try {
             User user = buildUser(req);
 
+            log.info("Calling userService.createUser()");
             String message = userService.createUser(user);
 
             res.setStatus(HttpServletResponse.SC_CREATED);
-            res.getWriter().write("""
-                {
-                  "status": "SUCCESS",
-                  "message": "%s"
-                }
-                """.formatted(message));
+            mapper.writeValue(res.getWriter(), Map.of(
+                    "status", "SUCCESS",
+                    "message", message
+            ));
+
+            log.info("User creation completed successfully");
+
+        } catch (IllegalArgumentException e) {
+            log.warn("Validation failed: {}", e.getMessage());
+
+            res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            mapper.writeValue(res.getWriter(), Map.of(
+                    "status", "ERROR",
+                    "message", e.getMessage()
+            ));
 
         } catch (Exception e) {
+            log.error("Exception while creating user", e);
 
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            res.getWriter().write("""
-                {
-                  "status": "ERROR",
-                  "message": "User creation failed"
-                }
-                """);
+            mapper.writeValue(res.getWriter(), Map.of(
+                    "status", "ERROR",
+                    "message", "User creation failed"
+            ));
         }
     }
 
-    private User buildUser(HttpServletRequest req) {
+    private User buildUser(HttpServletRequest req) throws IOException {
+        try {
+            User user = mapper.readValue(req.getInputStream(), User.class);
 
-        User user = new User();
-        user.setEmail(req.getParameter("email"));
-        user.setEmpId(req.getParameter("empId"));
-        user.setPassword(req.getParameter("password"));
+            // ✅ PRINT OBJECT DATA (SAFE WAY)
+            log.info("User parsed -> email={}, empId={}",
+                    user.getEmail(), user.getEmpId());
 
-        return user;
+            return user;
+
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid JSON body", e);
+        }
     }
 }
