@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="35beb72d-0071-4078-abcb-2abc47a6bcb0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/OfferDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/OfferDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sampleservlet/dao/UserDao.java" afterDir="false" />
@@ -24,6 +25,8 @@
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/LoginServletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/LoginServletTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/OfferServletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/servlet/OfferServletTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/util/HashingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sampleservlet/util/HashingTest.java" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
