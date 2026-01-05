@@ -28,8 +28,8 @@ class LoginServletTest {
         }
 
         @Override
-        public String valitateUser(String username, String password) {
-            return "user exit";
+        public Boolean valitateUser(String username, String password) {
+            return true;
         }
     }
 
@@ -69,8 +69,12 @@ class LoginServletTest {
 
         servlet.doGet(request, response);
 
-        assertEquals(HttpServletResponse.SC_CREATED, response.getStatus());
-        assertTrue(response.getBody().contains("SUCCESS"));
-        assertTrue(response.getBody().contains("user exit"));
+        assertEquals(HttpServletResponse.SC_OK, response.getStatus());
+
+        String body = response.getBody();
+
+        assertTrue(body.contains("\"status\":\"SUCCESS\""));
+        assertTrue(body.contains("\"token\""));
     }
+
 }

@@ -4,6 +4,7 @@ import com.example.sampleservlet.dao.UserDao;
 import com.example.sampleservlet.model.User;
 import com.example.sampleservlet.service.UserServiceImpl;
 import com.example.sampleservlet.util.Hashing;
+import com.example.sampleservlet.util.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import jakarta.servlet.annotation.WebServlet;
@@ -73,31 +74,47 @@ public class LoginServlet extends HttpServlet {
     }
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException{
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
         res.setContentType("application/json");
         res.setCharacterEncoding("UTF-8");
-         try{
-             log.info("Entered in to login url of get");
 
-             String message = userServiceImpl.valitateUser(req.getParameter("empId"), req.getParameter("password"));
+        try {
+            log.info("Login request received (GET)");
 
-             res.setStatus(HttpServletResponse.SC_CREATED);
-             mapper.writeValue(res.getWriter(), Map.of(
-                     "status", "SUCCESS",
-                     "message", message
-             ));
-             log.info("Steped of login url of get");
-         } catch (Exception e) {
-             log.error("Exception while loging user", e);
+            String empId = req.getParameter("empId");
+            String password = req.getParameter("password");
 
-             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-             mapper.writeValue(res.getWriter(), Map.of(
-                     "status", "ERROR",
-                     "message", "user credential is wrong"
-             ));
-         }
+            boolean isValid = userServiceImpl.valitateUser(empId, password);
 
+            if (!isValid) {
+                res.setStatus(HttpServletResponse.SC_OK);
+                mapper.writeValue(res.getWriter(), Map.of(
+                        "status", "ERROR",
+                        "message", "Invalid credentials"
+                ));
+                return;
+            }
+
+            String token = JwtUtil.generateToken(empId);
+
+            res.setStatus(HttpServletResponse.SC_OK);
+            mapper.writeValue(res.getWriter(), Map.of(
+                    "status", "SUCCESS",
+                    "token", token
+            ));
+
+            log.info("Login successful for empId={}", empId);
+
+        } catch (Exception e) {
+            log.error("Login failed", e);
+
+            res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            mapper.writeValue(res.getWriter(), Map.of(
+                    "status", "ERROR",
+                    "message", "Login failed"
+            ));
+        }
     }
 
     private User buildUser(HttpServletRequest req) throws IOException {

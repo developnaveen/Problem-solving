@@ -5,31 +5,41 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-import java.security.Key;
+import javax.crypto.SecretKey;
 import java.util.Date;
 
 public class JwtUtil {
-    private static final Key SECRET_KEY = Keys.hmacShaKeyFor("my-secret-key".getBytes());
-    private static final long EXPIRATION_TIME = 60 * 60 * 1000;
 
-    public static String generateToken(String username){
-        return Jwts.builder().setSubject(username).setIssuedAt(new Date()).setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME)).signWith(SECRET_KEY, SignatureAlgorithm.ES256).compact();
+    private static final SecretKey SECRET_KEY = Keys.hmacShaKeyFor("my-super-secret-key-which-is-very-secure".getBytes());
+
+    private static final long EXPIRATION_TIME = 60 * 60 * 1000; // 1 hour
+
+    public static String generateToken(String username) {
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(SECRET_KEY, SignatureAlgorithm.HS256)
+                .compact();
     }
 
-    public static String extractUsername(String token){
+    public static String extractUsername(String token) {
         return getClaims(token).getSubject();
     }
 
-    public static boolean isTokenExpired(String token){
+    public static boolean isTokenExpired(String token) {
         return getClaims(token).getExpiration().before(new Date());
     }
 
     private static Claims getClaims(String token) {
-        return Jwts.parserBuilder().setSigningKey(SECRET_KEY).build().parseClaimsJws(token).getBody();
+        return Jwts.parser()
+                .verifyWith(SECRET_KEY)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
-    public static boolean validateToken(String token, String username){
-        return extractUsername(token).equals(username) && ! isTokenExpired(token);
+    public static boolean validateToken(String token, String username) {
+        return extractUsername(token).equals(username) && !isTokenExpired(token);
     }
-
 }

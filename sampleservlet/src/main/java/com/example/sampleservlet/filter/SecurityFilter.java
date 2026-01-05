@@ -1,5 +1,6 @@
 package com.example.sampleservlet.filter;
 
+import com.example.sampleservlet.util.JwtUtil;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.FilterConfig;
@@ -12,12 +13,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebFilter("/*")
+@WebFilter("/loans/*")
 public class SecurityFilter implements Filter {
 
     @Override
-    public void init(FilterConfig filterConfig) {
-    }
+    public void init(FilterConfig filterConfig) { }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -26,9 +26,9 @@ public class SecurityFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        String path = req.getRequestURI();
+        String uri = req.getRequestURI();
 
-        if (path.contains("/login") || path.contains("/register")) {
+        if (uri.contains("/login")) {
             chain.doFilter(request, response);
             return;
         }
@@ -37,7 +37,24 @@ public class SecurityFilter implements Filter {
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            res.getWriter().write("Unauthorized Access");
+            res.getWriter().write("Missing or invalid Authorization header");
+            return;
+        }
+
+        String token = authHeader.substring(7);
+
+        try {
+
+            String username = JwtUtil.extractUsername(token);
+
+            if (JwtUtil.validateToken(token, username)) {
+                chain.doFilter(request, response);
+                return;
+            }
+
+        } catch (Exception e) {
+            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            res.getWriter().write("Invalid token");
             return;
         }
 
@@ -45,6 +62,5 @@ public class SecurityFilter implements Filter {
     }
 
     @Override
-    public void destroy() {
-    }
+    public void destroy() { }
 }

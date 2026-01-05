@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/offerservlet")
+@WebServlet("/loans/*")
 public class OfferServlet extends HttpServlet {
 
     private static final Logger log = LoggerFactory.getLogger(OfferServlet.class);

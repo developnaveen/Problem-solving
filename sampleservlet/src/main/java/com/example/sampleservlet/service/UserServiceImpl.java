@@ -21,11 +21,11 @@ public class UserServiceImpl implements UserService {
         return "user saved success";
     }
 
-    public String valitateUser(String username, String password) {
+    public Boolean valitateUser(String username, String password) {
         String dbPassword = userDao.getUser(username);
         if (hashing.verifyPassword(password, dbPassword)) {
-            return "user exit";
+            return true;
         }
-        return "user not exit";
+        return false;
     }
 }
