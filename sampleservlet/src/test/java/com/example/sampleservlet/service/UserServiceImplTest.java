@@ -51,8 +51,8 @@ class UserServiceImplTest {
 
         String result = service.createUser(user);
 
-        assertEquals("user saved success", result);
+        assertEquals("user saved success", result,"success");
         assertTrue(dao.saved);
-        assertEquals("hashedPassword", user.getPassword());
+        assertEquals("hashedPassword", user.getPassword(),"success");
     }
 }

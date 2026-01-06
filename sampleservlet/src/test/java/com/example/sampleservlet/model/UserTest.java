@@ -14,8 +14,8 @@ class UserTest {
         user.setEmpId("EMP1001");
         user.setPassword("hashedPassword123");
 
-        assertEquals("user@test.com", user.getEmail());
-        assertEquals("EMP1001", user.getEmpId());
-        assertEquals("hashedPassword123", user.getPassword());
+        assertEquals("user@test.com", user.getEmail(),"success");
+        assertEquals("EMP1001", user.getEmpId(),"success");
+        assertEquals("hashedPassword123", user.getPassword(),"success");
     }
 }

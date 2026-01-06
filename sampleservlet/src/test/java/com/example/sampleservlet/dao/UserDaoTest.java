@@ -32,15 +32,15 @@ class UserDaoTest {
 
         String password = userDao.getUser("TEST1001");
 
-        assertNotNull(password);
-        assertEquals("hashed-password", password);
+        assertNotNull(password,"success");
+        assertEquals("hashed-password", password,"success");
     }
 
     @Test
     void shouldReturnNullIfUserNotFound() {
         String password = userDao.getUser("UNKNOWN_ID");
 
-        assertNull(password);
+        assertNull(password,"success");
     }
 
     @Test
@@ -52,7 +52,7 @@ class UserDaoTest {
                 () -> userDao.saveUser(testUser)
         );
 
-        assertEquals("User already exists", exception.getMessage());
+        assertEquals("User already exists", exception.getMessage(),"success");
     }
 
     @AfterEach

@@ -20,7 +20,7 @@ import java.util.Map;
 @WebServlet("/user")
 public class LoginServlet extends HttpServlet {
 
-    private static final Logger log = LoggerFactory.getLogger(LoginServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginServlet.class);
     private UserServiceImpl userServiceImpl;
     private final ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
@@ -33,8 +33,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        log.info("Content-Type: {}", req.getContentType());
-        log.info("User creation request received");
+        LOGGER.info("Content-Type: {}", req.getContentType());
+        LOGGER.info("User creation request received");
 
         res.setContentType("application/json");
         res.setCharacterEncoding("UTF-8");
@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
         try {
             User user = buildUser(req);
 
-            log.info("Calling userService.createUser()");
+            LOGGER.info("Calling userService.createUser()");
             String message = userServiceImpl.createUser(user);
 
             res.setStatus(HttpServletResponse.SC_CREATED);
@@ -51,10 +51,10 @@ public class LoginServlet extends HttpServlet {
                     "message", message
             ));
 
-            log.info("User creation completed successfully");
+            LOGGER.info("User creation completed successfully");
 
         } catch (IllegalArgumentException e) {
-            log.warn("Validation failed: {}", e.getMessage());
+            LOGGER.warn("Validation failed: {}", e.getMessage());
 
             res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             mapper.writeValue(res.getWriter(), Map.of(
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
             ));
 
         } catch (Exception e) {
-            log.error("Exception while creating user", e);
+            LOGGER.error("Exception while creating user", e);
 
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             mapper.writeValue(res.getWriter(), Map.of(
@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
         try {
-            log.info("Login request received (GET)");
+            LOGGER.info("Login request received (GET)");
 
             String empId = req.getParameter("empId");
             String password = req.getParameter("password");
@@ -104,10 +104,10 @@ public class LoginServlet extends HttpServlet {
                     "token", token
             ));
 
-            log.info("Login successful for empId={}", empId);
+            LOGGER.info("Login successful for empId={}", empId);
 
         } catch (Exception e) {
-            log.error("Login failed", e);
+            LOGGER.error("Login failed", e);
 
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             mapper.writeValue(res.getWriter(), Map.of(
@@ -121,7 +121,7 @@ public class LoginServlet extends HttpServlet {
         try {
             User user = mapper.readValue(req.getInputStream(), User.class);
 
-            log.info("User parsed -> email={}, empId={}",
+            LOGGER.info("User parsed -> email={}, empId={}",
                     user.getEmail(), user.getEmpId());
 
             return user;

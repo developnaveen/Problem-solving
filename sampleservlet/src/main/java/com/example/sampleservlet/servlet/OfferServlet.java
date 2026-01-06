@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/loans/*")
 public class OfferServlet extends HttpServlet {
 
-    private static final Logger log = LoggerFactory.getLogger(OfferServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OfferServlet.class);
 
     private final ObjectMapper mapper = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -47,14 +47,14 @@ public class OfferServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
         try {
-            log.info("Fetching all offers via GET");
+            LOGGER.info("Fetching all offers via GET");
             List<Offer> offers = offerServiceImpl.getAllOffer();
 
             res.setStatus(HttpServletResponse.SC_OK);
             mapper.writeValue(res.getWriter(), offers);
 
         } catch (Exception e) {
-            log.error("Error fetching offers", e);
+            LOGGER.error("Error fetching offers", e);
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             mapper.writeValue(res.getWriter(), Map.of(
                     "status", "ERROR",
@@ -69,7 +69,7 @@ public class OfferServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
         try {
-            log.info("Received POST request to create offer");
+            LOGGER.info("Received POST request to create offer");
             Offer offer = buildOffer(req);
 
             String result = offerServiceImpl.offerUpload(offer);
@@ -81,7 +81,7 @@ public class OfferServlet extends HttpServlet {
             ));
 
         } catch (Exception e) {
-            log.error("Exception while creating offer", e);
+            LOGGER.error("Exception while creating offer", e);
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             mapper.writeValue(res.getWriter(), Map.of(
                     "status", "ERROR",
@@ -96,7 +96,7 @@ public class OfferServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
         try {
-            log.info("Entered doDelete for offerId: {}", req.getParameter("offerId"));
+            LOGGER.info("Entered doDelete for offerId: {}", req.getParameter("offerId"));
 
             String result = offerServiceImpl.deleteOffer(req.getParameter("offerId"));
 
@@ -106,7 +106,7 @@ public class OfferServlet extends HttpServlet {
                     "message", result
             ));
         } catch (Exception e) {
-            log.error("Exception at the delete of offer", e);
+            LOGGER.error("Exception at the delete of offer", e);
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             mapper.writeValue(res.getWriter(), Map.of(
                     "status", "ERROR",
@@ -121,7 +121,7 @@ public class OfferServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
         try {
-            log.info("Received request to update offer");
+            LOGGER.info("Received request to update offer");
 
             Offer offerToUpdate = buildOffer(req);
             String result = offerServiceImpl.updateOffer(offerToUpdate);
@@ -132,7 +132,7 @@ public class OfferServlet extends HttpServlet {
                     "message", result
             ));
         } catch (Exception e){
-            log.error("Exception during update", e);
+            LOGGER.error("Exception during update", e);
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             mapper.writeValue(res.getWriter(), Map.of(
                     "status", "ERROR",
@@ -146,7 +146,7 @@ public class OfferServlet extends HttpServlet {
         try {
             return mapper.readValue(req.getInputStream(), Offer.class);
         } catch (IOException e) {
-            log.warn("Failed to parse JSON body");
+            LOGGER.warn("Failed to parse JSON body");
             throw new IllegalArgumentException("Invalid JSON body in request", e);
         }
     }

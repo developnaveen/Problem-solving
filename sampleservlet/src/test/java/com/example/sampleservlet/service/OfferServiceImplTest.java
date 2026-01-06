@@ -39,7 +39,7 @@ class OfferServiceImplTest {
     @Test
     void shouldUploadOffer() {
         String result = offerService.offerUpload(offer);
-        assertEquals("Offer uploaded", result);
+        assertEquals("Offer uploaded", result,"success");
     }
 
     @Test
@@ -62,7 +62,7 @@ class OfferServiceImplTest {
 
         String result = offerService.updateOffer(offer);
 
-        assertEquals("Offer updated successfully", result);
+        assertEquals("Offer updated successfully", result,"success");
     }
 
     @Test
@@ -71,6 +71,6 @@ class OfferServiceImplTest {
 
         String result = offerService.deleteOffer(offer.getOfferId());
 
-        assertEquals("Offer deleted successfully", result);
+        assertEquals("Offer deleted successfully", result,"success");
     }
 }

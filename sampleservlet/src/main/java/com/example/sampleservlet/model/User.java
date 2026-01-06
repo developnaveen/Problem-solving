@@ -5,6 +5,8 @@ public class User {
     private String empId;
     private String password;
 
+    public User() {
+    }
 
     public String getEmpId() {
         return empId;

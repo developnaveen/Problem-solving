@@ -11,8 +11,8 @@ import java.util.Date;
 public class JwtUtil {
 
     private static final SecretKey SECRET_KEY = Keys.hmacShaKeyFor("my-super-secret-key-which-is-very-secure".getBytes());
-
-    private static final long EXPIRATION_TIME = 60 * 60 * 1000; // 1 hour
+    // 1 hour
+    private static final long EXPIRATION_TIME = (long) 60 * 60 * 1000;
 
     public static String generateToken(String username) {
         return Jwts.builder()

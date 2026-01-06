@@ -1,120 +1,187 @@
-2026-01-05 12:26:15 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 12:26:16 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@4910afdf
-2026-01-05 12:26:16 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 12:26:17 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 12:26:17 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
-2026-01-05 12:26:17 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 12:26:17 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 12:26:17 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 12:26:17 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 12:26:17 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 12:26:17 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:26:17 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 12:26:17 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 12:26:17 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 12:26:17 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:32:06 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 12:32:06 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@22ff11ef
-2026-01-05 12:32:06 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 12:32:07 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 12:32:07 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
-2026-01-05 12:32:07 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 12:32:07 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 12:32:07 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 12:32:07 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 12:32:07 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 12:32:07 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:32:07 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 12:32:07 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 12:32:07 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 12:32:07 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:40:31 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 12:40:32 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@22ff11ef
-2026-01-05 12:40:32 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 12:40:32 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 12:40:33 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
-2026-01-05 12:40:33 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 12:40:33 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 12:40:33 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 12:40:33 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 12:40:33 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 12:40:33 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:40:33 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 12:40:33 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 12:40:33 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 12:40:33 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:51:08 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 12:51:08 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c5ac0
-2026-01-05 12:51:08 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 12:51:09 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 12:51:09 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=E101
-2026-01-05 12:51:09 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 12:51:09 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 12:51:09 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 12:51:09 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 12:51:09 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 12:51:09 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:51:09 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 12:51:09 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 12:51:09 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 12:51:09 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:56:38 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 12:56:39 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@22ff11ef
-2026-01-05 12:56:39 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 12:56:39 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 12:56:39 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=E101
-2026-01-05 12:56:39 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 12:56:39 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 12:56:39 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 12:56:39 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 12:56:39 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 12:56:40 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:56:40 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 12:56:40 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 12:56:40 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 12:56:40 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:57:40 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 12:57:41 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c5ac0
-2026-01-05 12:57:41 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 12:57:42 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 12:57:42 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
-2026-01-05 12:57:42 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 12:57:42 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 12:57:42 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 12:57:42 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 12:57:42 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 12:57:42 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 12:57:42 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 12:57:42 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 12:57:42 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 12:57:42 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 19:17:47 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 19:17:48 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@22ff11ef
-2026-01-05 19:17:48 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 19:17:48 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 19:17:48 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
-2026-01-05 19:17:48 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 19:17:48 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 19:17:48 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 19:17:48 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 19:17:48 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 19:17:48 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 19:17:48 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 19:17:48 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 19:17:49 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 19:17:49 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 19:19:47 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Starting...
-2026-01-05 19:19:47 INFO  com.zaxxer.hikari.pool.HikariPool - Naveen Hikari pool - Added connection com.mysql.cj.jdbc.ConnectionImpl@22ff11ef
-2026-01-05 19:19:47 INFO  com.zaxxer.hikari.HikariDataSource - Naveen Hikari pool - Start completed.
-2026-01-05 19:19:48 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
-2026-01-05 19:19:48 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
-2026-01-05 19:19:48 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
-2026-01-05 19:19:48 INFO  c.e.s.servlet.LoginServlet - User creation request received
-2026-01-05 19:19:48 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
-2026-01-05 19:19:48 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
-2026-01-05 19:19:48 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
-2026-01-05 19:19:48 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
-2026-01-05 19:19:48 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
-2026-01-05 19:19:48 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
-2026-01-05 19:19:48 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
-2026-01-05 19:19:48 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 11:30:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 11:30:06 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c8e2850
+2026-01-06 11:30:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 11:30:07 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 11:30:07 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 11:30:07 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 11:30:07 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 11:30:07 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 11:30:07 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 11:30:07 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 11:30:07 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 11:30:07 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 11:30:07 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 11:30:07 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 11:30:07 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 11:31:18 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 11:31:19 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3cf70afa
+2026-01-06 11:31:19 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 11:31:20 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 11:31:20 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 11:31:20 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 11:31:20 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 11:31:20 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 11:31:20 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 11:31:20 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 11:31:20 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 11:31:20 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 11:31:20 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 11:31:20 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 11:31:20 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 11:35:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 11:35:03 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3cf70afa
+2026-01-06 11:35:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 11:35:04 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 11:35:04 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 11:35:04 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 11:35:04 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 11:35:04 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 11:35:04 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 11:35:04 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 11:35:04 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 11:35:04 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 11:35:04 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 11:35:04 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 11:35:04 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 12:52:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 12:52:58 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a7aa675
+2026-01-06 12:52:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 12:52:59 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 12:52:59 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 12:52:59 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 12:52:59 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 12:52:59 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 12:52:59 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 12:52:59 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 12:52:59 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 12:52:59 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 12:52:59 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 12:52:59 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 12:52:59 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:01:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 13:01:48 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a7aa675
+2026-01-06 13:01:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 13:01:49 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 13:01:49 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 13:01:49 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 13:01:49 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 13:01:49 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 13:01:49 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 13:01:49 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 13:01:49 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:01:49 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 13:01:49 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 13:01:49 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 13:01:49 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:06:09 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 13:06:10 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a7aa675
+2026-01-06 13:06:10 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 13:06:10 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 13:06:10 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 13:06:10 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 13:06:10 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 13:06:10 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 13:06:10 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 13:06:10 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 13:06:10 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:06:10 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 13:06:10 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 13:06:10 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 13:06:10 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:06:21 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 13:06:22 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a7aa675
+2026-01-06 13:06:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 13:06:23 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 13:06:23 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 13:06:23 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 13:06:23 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 13:06:23 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 13:06:23 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 13:06:23 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 13:06:23 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:06:23 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 13:06:23 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 13:06:23 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 13:06:23 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:12:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 13:12:58 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a7aa675
+2026-01-06 13:12:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 13:12:58 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 13:12:59 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 13:12:59 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 13:12:59 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 13:12:59 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 13:12:59 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 13:12:59 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 13:12:59 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:12:59 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 13:12:59 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 13:12:59 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 13:12:59 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:14:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 13:14:48 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a7aa675
+2026-01-06 13:14:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 13:14:49 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 13:14:49 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 13:14:49 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 13:14:49 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 13:14:49 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 13:14:49 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 13:14:49 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 13:14:49 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:14:49 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 13:14:49 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 13:14:49 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 13:14:49 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:33:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 13:33:50 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a7aa675
+2026-01-06 13:33:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 13:33:51 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 13:33:51 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 13:33:51 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 13:33:51 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 13:33:51 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 13:33:51 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 13:33:51 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 13:33:51 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 13:33:51 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 13:33:51 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 13:33:51 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 13:33:51 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 14:45:02 INFO  c.e.s.config.ConnectionProvider - Entered into pool
+2026-01-06 14:45:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-06 14:45:03 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@c677d7e
+2026-01-06 14:45:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-06 14:45:03 INFO  c.e.s.config.ConnectionProvider - out of the pool
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Entered to delete the user
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Entered to delete the user
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - enterd into the deleteoffer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Entered to delete the user
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Entered to delete the user
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Entered into select offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - enterd into the deleteoffer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - enterd into the deleteoffer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - enterd into the deleteoffer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - enterd into the deleteoffer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Entered into select offer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - enterd into the deleteoffer
+2026-01-06 14:45:03 INFO  c.e.sampleservlet.dao.OfferDaoImpl - Enterd into insert the offer
+2026-01-06 14:45:04 INFO  c.e.s.servlet.LoginServlet - Login request received (GET)
+2026-01-06 14:45:04 INFO  c.e.s.servlet.LoginServlet - Login successful for empId=EMP1
+2026-01-06 14:45:04 INFO  c.e.s.servlet.LoginServlet - Content-Type: 
+2026-01-06 14:45:04 INFO  c.e.s.servlet.LoginServlet - User creation request received
+2026-01-06 14:45:04 INFO  c.e.s.servlet.LoginServlet - User parsed -> email=null, empId=EMP1
+2026-01-06 14:45:04 INFO  c.e.s.servlet.LoginServlet - Calling userService.createUser()
+2026-01-06 14:45:04 INFO  c.e.s.servlet.LoginServlet - User creation completed successfully
+2026-01-06 14:45:04 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET
+2026-01-06 14:45:04 INFO  c.e.s.servlet.OfferServlet - Entered doDelete for offerId: OFF30
+2026-01-06 14:45:04 INFO  c.e.s.servlet.OfferServlet - Received request to update offer
+2026-01-06 14:45:04 INFO  c.e.s.servlet.OfferServlet - Received POST request to create offer
+2026-01-06 14:45:04 INFO  c.e.s.servlet.OfferServlet - Fetching all offers via GET

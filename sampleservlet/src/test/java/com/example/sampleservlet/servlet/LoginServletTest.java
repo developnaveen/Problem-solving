@@ -69,12 +69,12 @@ class LoginServletTest {
 
         servlet.doGet(request, response);
 
-        assertEquals(HttpServletResponse.SC_OK, response.getStatus());
+        assertEquals(HttpServletResponse.SC_OK, response.getStatus(),"success");
 
         String body = response.getBody();
 
-        assertTrue(body.contains("\"status\":\"SUCCESS\""));
-        assertTrue(body.contains("\"token\""));
+        assertTrue(body.contains("\"status\":\"SUCCESS\""),"success");
+        assertTrue(body.contains("\"token\""),"success");
     }
 
 }

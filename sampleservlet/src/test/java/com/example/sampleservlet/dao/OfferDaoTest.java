@@ -37,7 +37,7 @@ class OfferDaoTest {
     @Test
     void shouldSaveOffer() {
         String result = offerDao.saveOffer(testOffer);
-        assertEquals("Offer uploaded", result);
+        assertEquals("Offer uploaded", result,"success");
     }
 
     @Test
@@ -47,7 +47,7 @@ class OfferDaoTest {
         List<Offer> offers = offerDao.getOffer();
 
         assertNotNull(offers);
-        assertTrue(offers.size() > 0);
+        assertTrue(offers.size() > 0,"success");
     }
 
     @Test
@@ -58,7 +58,7 @@ class OfferDaoTest {
 
         String result = offerDao.updateOffer(testOffer);
 
-        assertEquals("Offer updated successfully", result);
+        assertEquals("Offer updated successfully", result,"success");
     }
 
     @Test
@@ -67,7 +67,7 @@ class OfferDaoTest {
 
         String result = offerDao.deleteOffer(testOffer.getOfferId());
 
-        assertEquals("Offer deleted successfully", result);
+        assertEquals("Offer deleted successfully", result,"success");
     }
 
 }

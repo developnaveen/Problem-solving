@@ -15,8 +15,8 @@ class HashingTest {
         String hashed = hashing.hashData(plainText);
 
         assertNotNull(hashed);
-        assertNotEquals(plainText, hashed);
-        assertTrue(hashed.startsWith("$2")); // BCrypt hash format
+        assertNotEquals(plainText, hashed,"success");
+        assertTrue(hashed.startsWith("$2"),"success"); // BCrypt hash format
     }
 
     @Test
@@ -27,7 +27,7 @@ class HashingTest {
 
         boolean result = hashing.verifyPassword(plainText, hashed);
 
-        assertTrue(result);
+        assertTrue(result,"success");
     }
 
     @Test
@@ -39,6 +39,6 @@ class HashingTest {
 
         boolean result = hashing.verifyPassword(wrongPassword, hashed);
 
-        assertFalse(result);
+        assertFalse(result,"success");
     }
 }

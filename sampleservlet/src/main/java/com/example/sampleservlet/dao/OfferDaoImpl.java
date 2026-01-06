@@ -2,6 +2,8 @@ package com.example.sampleservlet.dao;
 
 import com.example.sampleservlet.config.ConnectionProvider;
 import com.example.sampleservlet.model.Offer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +13,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OfferDaoImpl implements OfferDao {
+    private static final Logger LOGGER = LoggerFactory.getLogger(OfferDaoImpl.class);
+
+    private static final int IDX_OFFER_ID = 1;
+    private static final int IDX_OFFER_NAME = 2;
+    private static final int IDX_PRODUCT_TYPE = 3;
+    private static final int IDX_CUSTOMER_TYPE = 4;
+    private static final int IDX_MIN_LOAN_AMOUNT = 5;
+    private static final int IDX_MAX_LOAN_AMOUNT = 6;
+    private static final int IDX_TENURE = 7;
+    private static final int IDX_INTEREST_RATE = 8;
+    private static final int IDX_INTEREST_RATE_TYPE = 9;
+    private static final int IDX_CREDIT_SCORE = 10;
+    private static final int IDX_OFFER_VALID_FROM = 11;
+    private static final int IDX_OFFER_VALID_TO = 12;
+
+    // UPDATE indexes
+    private static final int U_OFFER_NAME = 1;
+    private static final int U_PRODUCT_TYPE = 2;
+    private static final int U_CUSTOMER_TYPE = 3;
+    private static final int U_MIN_LOAN_AMOUNT = 4;
+    private static final int U_MAX_LOAN_AMOUNT = 5;
+    private static final int U_TENURE = 6;
+    private static final int U_INTEREST_RATE = 7;
+    private static final int U_INTEREST_RATE_TYPE = 8;
+    private static final int U_CREDIT_SCORE = 9;
+    private static final int U_OFFER_VALID_FROM = 10;
+    private static final int U_OFFER_VALID_TO = 11;
+    private static final int U_OFFER_ID = 12;
+
 
     public String saveOffer(Offer offer) {
 
@@ -36,19 +67,20 @@ public class OfferDaoImpl implements OfferDao {
                 Connection con = ConnectionProvider.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql)
         ) {
+            LOGGER.info("Enterd into insert the offer");
 
-            ps.setString(1, offer.getOfferId());
-            ps.setString(2, offer.getOfferName());
-            ps.setString(3, offer.getProductType());
-            ps.setString(4, offer.getCustomerType());
-            ps.setString(5, offer.getMinLoanAmount());
-            ps.setString(6, offer.getMaxLoanAmount());
-            ps.setString(7, offer.getTenure());
-            ps.setString(8, offer.getInterestRate());
-            ps.setString(9, offer.getInterestRateType());
-            ps.setString(10, offer.getCreditScore());
-            ps.setString(11, offer.getOfferValidFrom());
-            ps.setString(12, offer.getOfferValidTo());
+            ps.setString(IDX_OFFER_ID, offer.getOfferId());
+            ps.setString(IDX_OFFER_NAME, offer.getOfferName());
+            ps.setString(IDX_PRODUCT_TYPE, offer.getProductType());
+            ps.setString(IDX_CUSTOMER_TYPE, offer.getCustomerType());
+            ps.setString(IDX_MIN_LOAN_AMOUNT , offer.getMinLoanAmount());
+            ps.setString(IDX_MAX_LOAN_AMOUNT , offer.getMaxLoanAmount());
+            ps.setString(IDX_TENURE, offer.getTenure());
+            ps.setString(IDX_INTEREST_RATE, offer.getInterestRate());
+            ps.setString(IDX_INTEREST_RATE_TYPE, offer.getInterestRateType());
+            ps.setString(IDX_CREDIT_SCORE, offer.getCreditScore());
+            ps.setString(IDX_OFFER_VALID_FROM, offer.getOfferValidFrom());
+            ps.setString(IDX_OFFER_VALID_TO, offer.getOfferValidTo());
 
             int row = ps.executeUpdate();
             if(row!=0){
@@ -59,7 +91,8 @@ public class OfferDaoImpl implements OfferDao {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error saving offer", e);
+            LOGGER.error("Error saving offer", e);
+            throw new OfferDaoException("Failed to delete offer with id: ", e);
         }
     }
 
@@ -78,6 +111,7 @@ public class OfferDaoImpl implements OfferDao {
                 PreparedStatement ps = con.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()
         ) {
+            LOGGER.info("Entered into select offer");
             while (rs.next()) {
                 Offer offer = new Offer();
 
@@ -99,7 +133,8 @@ public class OfferDaoImpl implements OfferDao {
                 offers.add(offer);
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error fetching offers from database", e);
+            LOGGER.info("Error fetching offers from database", e);
+            throw new OfferDaoException("Error fetching offers from database", e);
         }
         return offers;
     }
@@ -114,6 +149,7 @@ public class OfferDaoImpl implements OfferDao {
                 Connection con = ConnectionProvider.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql)
         ) {
+            LOGGER.info("enterd into the deleteoffer");
             ps.setString(1, id);
 
             int row = ps.executeUpdate();
@@ -123,7 +159,8 @@ public class OfferDaoImpl implements OfferDao {
                 return "Offer not found or could not be deleted";
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error deleting offer", e);
+            LOGGER.error("Error deleting offer with id={}", id, e);
+            throw new OfferDaoException("Failed to delete offer with id: " + id, e);
         }
     }
 
@@ -134,10 +171,12 @@ public class OfferDaoImpl implements OfferDao {
                 Connection con = ConnectionProvider.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql)
         ) {
+            LOGGER.info("Entered to delete the user");
             ps.setString(1, offerId);
             ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException("Error cleaning offer", e);
+            LOGGER.info("Error cleaning offer", e);
+            throw new OfferDaoException("Error cleaning offer", e);
         }
     }
 
@@ -166,19 +205,19 @@ public class OfferDaoImpl implements OfferDao {
                 PreparedStatement ps = con.prepareStatement(sql)
         ) {
 
-            ps.setString(1, offer.getOfferName());
-            ps.setString(2, offer.getProductType());
-            ps.setString(3, offer.getCustomerType());
-            ps.setString(4, offer.getMinLoanAmount());
-            ps.setString(5, offer.getMaxLoanAmount());
-            ps.setString(6, offer.getTenure());
-            ps.setString(7, offer.getInterestRate());
-            ps.setString(8, offer.getInterestRateType());
-            ps.setString(9, offer.getCreditScore());
-            ps.setString(10, offer.getOfferValidFrom());
-            ps.setString(11, offer.getOfferValidTo());
+            ps.setString(U_OFFER_NAME, offer.getOfferName());
+            ps.setString(U_PRODUCT_TYPE, offer.getProductType());
+            ps.setString(U_CUSTOMER_TYPE, offer.getCustomerType());
+            ps.setString(U_MIN_LOAN_AMOUNT , offer.getMinLoanAmount());
+            ps.setString(U_MAX_LOAN_AMOUNT , offer.getMaxLoanAmount());
+            ps.setString(U_TENURE, offer.getTenure());
+            ps.setString(U_INTEREST_RATE, offer.getInterestRate());
+            ps.setString(U_INTEREST_RATE_TYPE, offer.getInterestRateType());
+            ps.setString(U_CREDIT_SCORE, offer.getCreditScore());
+            ps.setString(U_OFFER_VALID_FROM, offer.getOfferValidFrom());
+            ps.setString(U_OFFER_VALID_TO, offer.getOfferValidTo());
 
-            ps.setString(12, offer.getOfferId());
+            ps.setString(U_OFFER_ID, offer.getOfferId());
 
             int row = ps.executeUpdate();
             if (row > 0) {
@@ -187,7 +226,7 @@ public class OfferDaoImpl implements OfferDao {
                 return "Offer not found with ID: " + offer.getOfferId();
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error updating offer", e);
+            throw new OfferDaoException("Error updating offer", e);
         }
     }
 

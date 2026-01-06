@@ -63,7 +63,7 @@ class OfferServletTest {
         servlet.doGet(request, response);
 
         assertEquals(HttpServletResponse.SC_OK, response.getStatus());
-        assertTrue(response.getBody().contains("Test Offer"));
+        assertTrue(response.getBody().contains("Test Offer"),"success");
     }
 
     @Test
@@ -81,7 +81,7 @@ class OfferServletTest {
 
         servlet.doGet(request, response);
 
-        assertTrue(response.getBody().contains("[]"));
+        assertTrue(response.getBody().contains("[]"),"success");
     }
 
     @Test
@@ -97,8 +97,8 @@ class OfferServletTest {
 
         servlet.doPost(request, response);
 
-        assertTrue(response.getBody().contains("SUCCESS"));
-        assertTrue(response.getBody().contains("Offer uploaded"));
+        assertTrue(response.getBody().contains("SUCCESS"),"success");
+        assertTrue(response.getBody().contains("Offer uploaded"),"success");
     }
 
     @Test
@@ -114,7 +114,7 @@ class OfferServletTest {
 
         servlet.doPut(request, response);
 
-        assertTrue(response.getBody().contains("Offer updated successfully"));
+        assertTrue(response.getBody().contains("Offer updated successfully"),"success");
     }
 
     @Test

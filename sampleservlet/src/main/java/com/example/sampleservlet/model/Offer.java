@@ -1,6 +1,7 @@
 package com.example.sampleservlet.model;
 
 public class Offer {
+
     private String offerId;
     private String offerName;
     private String productType;
@@ -13,6 +14,11 @@ public class Offer {
     private String creditScore;
     private String offerValidFrom;
     private String offerValidTo;
+
+    public Offer(){
+
+    }
+
 
     public String getOfferId() {
         return offerId;
