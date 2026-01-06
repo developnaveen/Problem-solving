@@ -35,10 +35,3 @@
 - Only authorized users with a valid JWT token can modify data
 - The system validates the input and updates the corresponding records in the database 
 
-### Sonar Qube 
-
-[sonar qube test]()
-
-### swagger
-
-[swagger]()
