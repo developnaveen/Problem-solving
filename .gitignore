@@ -1,0 +1,30 @@
+
+
+# class file
+# .class
+
+# maven
+target/ 
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# logs
+logs/
+
+# if dont want to share db credential and environments 
+# application.properties
+# *.properties
+# *.environments
+
+# os files 
+.DS_Store
+Thumbs.db
+
