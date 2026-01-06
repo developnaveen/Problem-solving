@@ -1,0 +1,299 @@
+openapi: 3.0.1
+
+info:
+  title: Loan Management API
+  description: |-
+    This API is for Loan Management in Bank Site and Customers Site. Now the 1st phase of offer upload have been completed. which contains an total of six endpoints for each business needs. Two are for the Bank employee to register and login. and Four are for the offer loan upload by the bank administratives.
+
+    Phase 1: Employee registration, login, and loan offer upload.
+
+    References:
+    - [Loan Details](https://www.kotak.bank.in/en/business/working-capital/fund-based/wcdl.html)
+    - [About Organization](https://www.kotak.bank.in/en/about-us.html)
+  version: 1.0.0
+
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/bluescope-444/loanmanagement/1.0.0
+  - description: kotak bank server
+    url: https://kotak.com/loans
+  - url: http://localhost:8080/sampleservlet
+    description: Local server
+  - url: http://ip:8080/sampleservlet
+    description: Locat network with ip
+    
+tags:
+  - name: Employee
+    description: Employee registration and login
+  - name: Offer upload
+    description: Offer upload and management
+
+paths:
+  /user:
+    post:
+      tags:
+        - Employee
+      summary: Register a new employee
+      description: Creates a new employee account
+      operationId: createEmployee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '201':
+          description: Employee created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterFailure'
+
+    get:
+      tags:
+        - Employee
+      summary: Employee login
+      description: Login using empId and password and receive JWT token
+      operationId: loginEmployee
+      parameters:
+        - name: empId
+          in: query
+          required: true
+          schema:
+            type: string
+            example: E101
+        - name: password
+          in: query
+          required: true
+          schema:
+            type: string
+            example: naveen@123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid credentials
+          content: 
+            application/json: 
+              schema:
+                $ref: '#components/schemas/LoginFailure'
+        '500':
+          description: Internal server error
+          content: 
+            application/json: 
+              schema:
+                $ref: '#components/schemas/LoginFailureTwo'
+
+  /loans/offerservlet:
+    post:
+      tags:
+        - Offer upload
+      summary: Upload loan offer
+      description: Upload loan offer by bank admin
+      operationId: uploadLoan
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Loan'
+      responses:
+        '201':
+          description: Loan offer uploaded successfully
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/LoanSuccess'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  
+  get:
+      tags:
+        - Offer upload
+      summary: offer will be uploaded by emp
+      description: The bank autharizeed emp will upload the offer file 
+      operationId: Offer upload
+      bearerAuth:
+        token:
+          jjnknsdk
+      responses:
+        '200':
+          description: 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+        '401':
+          description: Invalid credentials
+          content: 
+            application/json: 
+              schema:
+                $ref: '#components/schemas/LoginFailure'
+        '500':
+          description: Internal server error
+          content: 
+            application/json: 
+              schema:
+                $ref: '#components/schemas/LoginFailureTwo'
+        
+  
+
+
+          
+
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+
+    Register:
+      type: object
+      required:
+        - empId
+        - email
+        - password
+      properties:
+        empId:
+          type: string
+          example: E101
+        email:
+          type: string
+          example: naveen@gmail.com
+        password:
+          type: string
+          example: naveen@123
+
+    RegisterResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: SUCCESS
+        message: 
+          type: string
+          example: user saved success
+    
+    RegisterFailure:
+      type: object
+      properties: 
+        status: 
+          type: string
+          example: ERROR
+        message: 
+          type: string
+          example: User creation failed
+
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          example: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJFMTA1IiwiaWF0IjoxNzY3NjA0NTkyLCJleHAiOjE3Njc2MDgxOTJ9.ulhidYE5mnvlxse9_HNRaXmZyzPQDekxYSYgp8p7cLE
+        status:
+          type: string
+          example: SUCCESS
+
+    LoginFailure:
+      type: object
+      properties: 
+        status:
+          type: string
+          example: ERROR
+        message: 
+          type: string
+          example: Invalid credentials
+    
+    LoginFailureTwo:
+      type: object
+      properties: 
+        status:
+          type: string
+          example: ERROR
+        message: 
+          type: string
+          example: Login failed
+        
+    Loan:
+      type: object
+      required:
+        - offerId
+        - offerName
+        - productType
+        - customerType
+        - minLoanAmount
+        - maxLoanAmoun
+        - tenure
+        - interestRate
+        - interestRateType
+        - creditScore
+        - offerValidFrom
+        - offerValidTo
+      properties:
+        offerId:
+          type: string 
+          example: OFFER-2026-001
+        offerName:
+          type: string 
+          example: Personal Loan New Year Special
+        productType:
+          type: string
+          example: Personal Loan
+        customerType:
+          type: string
+          example: SALARIED
+        minLoanAmount: 
+          type: string
+          example: 50000
+        maxLoanAmount: 
+          type: string
+          example: 500000
+        tenure: 
+          type: string
+          example: 36 Months
+        interestRate:
+          type: string 
+          example: 10.5
+        interestRateType: 
+          type: string
+          example: FLOAD
+        creditScore: 
+          type: string
+          example: 750
+        offerValidFrom: 
+          type: string
+          example: 2026-01-01
+        offerValidTo:
+           type: string
+           example: 2026-03-31
+
+    LoanSuccess:
+      type: object
+      properties: 
+        status:
+          type: string
+          example: SUCCESS
+        message:
+          type: string
+          example: Offer uploaded
