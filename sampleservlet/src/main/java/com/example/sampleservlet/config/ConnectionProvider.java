@@ -7,7 +7,8 @@ import javax.sql.DataSource;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import org.slf4j.Logger;

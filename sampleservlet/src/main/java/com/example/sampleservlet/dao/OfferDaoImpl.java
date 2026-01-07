@@ -91,9 +91,10 @@ public class OfferDaoImpl implements OfferDao {
             }
 
         } catch (SQLException e) {
-            LOGGER.error("Error saving offer", e);
-            throw new OfferDaoException("Failed to delete offer with id: ", e);
+            LOGGER.error("Error saving offer with id={}", offer.getOfferId(), e);
+            throw new OfferDaoException("Failed to save offer with id: " + offer.getOfferId(), e);
         }
+
     }
 
 
@@ -133,9 +134,10 @@ public class OfferDaoImpl implements OfferDao {
                 offers.add(offer);
             }
         } catch (SQLException e) {
-            LOGGER.info("Error fetching offers from database", e);
+            LOGGER.error("Error fetching offers from database", e);
             throw new OfferDaoException("Error fetching offers from database", e);
         }
+
         return offers;
     }
 
@@ -175,9 +177,10 @@ public class OfferDaoImpl implements OfferDao {
             ps.setString(1, offerId);
             ps.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.info("Error cleaning offer", e);
-            throw new OfferDaoException("Error cleaning offer", e);
+            LOGGER.error("Error cleaning offer with id={}", offerId, e);
+            throw new OfferDaoException("Error cleaning offer with id: " + offerId, e);
         }
+
     }
 
 
