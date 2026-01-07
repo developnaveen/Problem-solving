@@ -1,7 +1,4 @@
----
-config:
-  theme: default
----
+```mermaid
 classDiagram
 direction TB
     class User {
@@ -92,3 +89,4 @@ direction TB
     filter -- OfferServlet
     OfferDao -- ConnectionProvider
     UserDao -- ConnectionProvider
+```
