@@ -23,9 +23,11 @@ public final class ConnectionProvider {
 
     static {
 
-        try(InputStream is = new FileInputStream("src/main/resources/db/liquibase.properties")) {
+        try {
+        	PROPS.load(getClass().getClassLoader().getResourceAsStream("liquibase.properties"));
+        
             LOGGER.info("Entered into pool");
-            PROPS.load(is);
+            
             HikariConfig config = new HikariConfig();
             config.setDriverClassName(PROPS.getProperty("driver"));
             config.setJdbcUrl(PROPS.getProperty("url"));
