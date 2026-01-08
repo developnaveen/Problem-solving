@@ -28,7 +28,6 @@ public class OfferDaoImpl implements OfferDao {
     private static final int IDX_OFFER_VALID_FROM = 11;
     private static final int IDX_OFFER_VALID_TO = 12;
 
-    // UPDATE indexes
     private static final int U_OFFER_NAME = 1;
     private static final int U_PRODUCT_TYPE = 2;
     private static final int U_CUSTOMER_TYPE = 3;

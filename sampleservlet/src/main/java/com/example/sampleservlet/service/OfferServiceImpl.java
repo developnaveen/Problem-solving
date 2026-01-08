@@ -2,6 +2,7 @@ package com.example.sampleservlet.service;
 
 import com.example.sampleservlet.dao.OfferDao;
 import com.example.sampleservlet.model.Offer;
+import com.example.sampleservlet.util.MailSender;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public String offerUpload(Offer offer) {
+        MailSender.send("malalatha60@gmail.com","hi");
         return offerDao.saveOffer(offer);
     }
 

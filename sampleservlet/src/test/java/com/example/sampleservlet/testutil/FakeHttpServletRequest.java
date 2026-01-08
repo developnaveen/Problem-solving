@@ -15,6 +15,8 @@ public class FakeHttpServletRequest implements HttpServletRequest {
     private final Map<String, String> params = new HashMap<>();
     private String body;
 
+    private HttpSession session = new FakeHttpSession();
+
     public void setParameter(String key, String value) {
         params.put(key, value);
     }
@@ -312,12 +314,12 @@ public class FakeHttpServletRequest implements HttpServletRequest {
 
     @Override
     public HttpSession getSession(boolean b) {
-        return null;
+        return session;
     }
 
     @Override
     public HttpSession getSession() {
-        return null;
+        return session;
     }
 
     @Override

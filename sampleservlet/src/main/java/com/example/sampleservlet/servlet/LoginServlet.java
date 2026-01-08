@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -94,6 +95,10 @@ public class LoginServlet extends HttpServlet {
                 return;
             }
 
+            HttpSession session = req.getSession(true);
+            session.setAttribute("userEmail", empId);
+            session.setMaxInactiveInterval(30 * 60);
+
             String token = JwtUtil.generateToken(empId);
 
             res.setStatus(HttpServletResponse.SC_OK);
@@ -106,7 +111,6 @@ public class LoginServlet extends HttpServlet {
 
         } catch (Exception e) {
             LOGGER.error("Login failed", e);
-
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             mapper.writeValue(res.getWriter(), Map.of(
                     "status", "ERROR",
@@ -114,6 +118,7 @@ public class LoginServlet extends HttpServlet {
             ));
         }
     }
+
 
     private User buildUser(HttpServletRequest req) throws IOException {
         try {

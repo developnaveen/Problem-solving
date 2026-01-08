@@ -2,66 +2,79 @@ package com.example.sampleservlet.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public final class ConnectionProvider {
-    private static DataSource dataSource;
-    private static final Properties PROPS = new Properties();
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionProvider.class);
 
-    private ConnectionProvider(){}
+    private static DataSource dataSource;
+    private static final Logger LOGGER =
+            LoggerFactory.getLogger(ConnectionProvider.class);
+
+    private ConnectionProvider() {}
 
     static {
+        initDataSource();
+    }
 
-        try {
-        	PROPS.load(getClass().getClassLoader().getResourceAsStream("liquibase.properties"));
-        
-            LOGGER.info("Entered into pool");
-            
+    private static void initDataSource() {
+        Properties props = new Properties();
+
+        try (InputStream is = ConnectionProvider.class
+                .getClassLoader()
+                .getResourceAsStream("db/liquibase.properties")) {
+
+            if (is == null) {
+                throw new IllegalStateException(
+                        "db/liquibase.properties not found in classpath");
+            }
+
+            props.load(is);
+
             HikariConfig config = new HikariConfig();
-            config.setDriverClassName(PROPS.getProperty("driver"));
-            config.setJdbcUrl(PROPS.getProperty("url"));
-            // root
-            config.setUsername(PROPS.getProperty("username"));
-            // password / bluescope
-            config.setPassword(PROPS.getProperty("password"));
-            // max connection
-            config.setMaximumPoolSize(Integer.parseInt(PROPS.getProperty("max")));
-            // min connection
-            config.setMinimumIdle(Integer.parseInt(PROPS.getProperty("min")));
-            // to restore the unused pool to min
-            config.setIdleTimeout(Integer.parseInt(PROPS.getProperty("idletimeOut")));
-            // to prevent db time out connection
-            config.setMaxLifetime(Integer.parseInt(PROPS.getProperty("maxtimeOut")));
-            // if all thread in use means then it happen
-            config.setConnectionTimeout(Integer.parseInt(PROPS.getProperty("connectionTime")));
+            config.setDriverClassName(props.getProperty("driver"));
+            config.setJdbcUrl(props.getProperty("url"));
+            config.setUsername(props.getProperty("username"));
+            config.setPassword(props.getProperty("password"));
+
+            config.setMaximumPoolSize(
+                    Integer.parseInt(props.getProperty("max")));
+            config.setMinimumIdle(
+                    Integer.parseInt(props.getProperty("min")));
+            config.setIdleTimeout(
+                    Long.parseLong(props.getProperty("idletimeOut")));
+            config.setMaxLifetime(
+                    Long.parseLong(props.getProperty("maxtimeOut")));
+            config.setConnectionTimeout(
+                    Long.parseLong(props.getProperty("connectionTime")));
+
             dataSource = new HikariDataSource(config);
-            LOGGER.info("out of the pool");
-        } catch (IOException e){
-            LOGGER.error("Error from the pool", e);
+
+            LOGGER.info("HikariCP pool initialized successfully");
+
+        } catch (Exception e) {
+            LOGGER.error("Failed to initialize datasource", e);
+            throw new ExceptionInInitializerError(e);
         }
     }
 
-
-
     public static Connection getConnection() throws SQLException {
+        if (dataSource == null) {
+            throw new IllegalStateException("Datasource not initialized");
+        }
         return dataSource.getConnection();
     }
-    
-    public static void closeConnection() {
-    	if(dataSource instanceof HikariDataSource) {
-    		((HikariDataSource) dataSource).close();
-    	}
+
+    public static void shutdown() {
+        if (dataSource instanceof HikariDataSource hikari) {
+            hikari.close();
+            LOGGER.info("HikariCP pool closed");
+        }
     }
 }
-
