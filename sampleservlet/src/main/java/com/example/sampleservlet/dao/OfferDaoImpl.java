@@ -92,7 +92,7 @@ public class OfferDaoImpl implements OfferDao {
         } catch (SQLException e) {
             LOGGER.error("Error saving offer with id={}", offer.getOfferId(), e);
             throw new OfferDaoException("Failed to save offer with id: " + offer.getOfferId(), e);
-        }
+        } 
 
     }
 
