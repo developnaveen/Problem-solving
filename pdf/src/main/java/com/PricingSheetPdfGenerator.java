@@ -18,6 +18,7 @@ import org.vandeseer.easytable.structure.cell.ImageCell;
 import org.vandeseer.easytable.structure.cell.TextCell;
 import org.vandeseer.easytable.settings.HorizontalAlignment;
 import org.vandeseer.easytable.settings.VerticalAlignment;
+import org.vandeseer.easytable.structure.cell.VerticalTextCell;
 
 public class PricingSheetPdfGenerator {
 
@@ -43,7 +44,7 @@ public class PricingSheetPdfGenerator {
         // Logo
         // ===============================
         PDImageXObject logo = PDImageXObject.createFromFile(
-                "F:\\Chech out\\pdf\\src\\main\\resources\\download.png",
+                "src/main/resources/download.png",
                 document
         );
 
@@ -111,18 +112,25 @@ public class PricingSheetPdfGenerator {
                 .borderWidth(1)
                 .padding(5)
 
+                // FIRST ROW (contains VerticalTextCell)
                 .addRow(Row.builder()
-                        .add(TextCell.builder()
-                                .text("G\ne\nn\ne\nr\na\nl")
+                        .add(VerticalTextCell.builder()
+                                .text("General")
                                 .rowSpan(9)
-                                .backgroundColor(new Color(190, 190, 190))
-                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .backgroundColor(LIGHTGREY)
                                 .horizontalAlignment(HorizontalAlignment.CENTER)
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
                                 .font(FONT_BOLD)
                                 .fontSize(10)
                                 .build())
-                        .add(TextCell.builder().text("CUSTOMER NAME :").fontSize(size).build())
-                        .add(TextCell.builder().text("").backgroundColor(LIGHTGREY).build())
+                        .add(TextCell.builder()
+                                .text("CUSTOMER NAME :")
+                                .fontSize(size)
+                                .build())
+                        .add(TextCell.builder()
+                                .text("")
+                                .backgroundColor(LIGHTGREY)
+                                .build())
                         .build())
 
                 .addRow(Row.builder()
@@ -167,6 +175,7 @@ public class PricingSheetPdfGenerator {
                         .add(TextCell.builder().text("BUSINESS SEGMENT :").fontSize(size).build())
                         .add(TextCell.builder().text("CCG").backgroundColor(YELLOW).build())
                         .build())
+
                 .build();
 
         // ===============================
@@ -197,12 +206,14 @@ public class PricingSheetPdfGenerator {
                 // ===== Row 1: SPREAD =====
                 .addRow(Row.builder()
                         // Col 1 (rowSpan)
-                        .add(TextCell.builder()
-                                .text("A\nd\nd\ni\nt\ni\no\nn\ns")
+                        .add(VerticalTextCell.builder()
+                                .text("Additions")
                                 .rowSpan(6)
-                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .backgroundColor(LIGHTGREY)
                                 .horizontalAlignment(HorizontalAlignment.CENTER)
-                                .backgroundColor(new Color(190,190,190))
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .font(FONT_BOLD)
+                                .fontSize(10)
                                 .build())
                         // Col 2
                         .add(TextCell.builder()
@@ -309,14 +320,16 @@ public class PricingSheetPdfGenerator {
 
                 // Row 1
                 .addRow(Row.builder()
-                        .add(TextCell.builder()
-                                .text("W\na\ni\nv\ne\nr\ns\n/\nR\ne\nd\nu\nc\nt\ni\no\nn\ns")
+                        .add(VerticalTextCell.builder()
+                                .text("Waivers / Reductions")
                                 .rowSpan(4)
                                 .fontSize(7)          // 🔑 key
                                 .padding(2)
-                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .backgroundColor(LIGHTGREY)
                                 .horizontalAlignment(HorizontalAlignment.CENTER)
-                                .backgroundColor(new Color(190, 190, 190))
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .font(FONT_BOLD)
+                                .fontSize(10)
                                 .build())
                         .add(TextCell.builder()
                                 .text("Discount for Tenor Premium")
@@ -390,13 +403,14 @@ public class PricingSheetPdfGenerator {
 
                 // ===== Row 2: Repo Rate =====
                 .addRow(Row.builder()
-                        .add(TextCell.builder()
-                                .text("")
+                        .add(VerticalTextCell.builder()
+                                .text("For Ops Team Use Only")
                                 .rowSpan(2)
-                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .backgroundColor(LIGHTGREY)
                                 .horizontalAlignment(HorizontalAlignment.CENTER)
-                                .backgroundColor(new Color(190,190,190))
-                                .fontSize(7)
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .font(FONT_BOLD)
+                                .fontSize(10)
                                 .build())
                         .add(TextCell.builder()
                                 .text("Repo Rate")
