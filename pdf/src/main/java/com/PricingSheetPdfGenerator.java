@@ -108,7 +108,7 @@ public class PricingSheetPdfGenerator {
         // General Table
         // ===============================
         Table generalTable = Table.builder()
-                .addColumnsOfWidth(30, 160, 310)
+                .addColumnsOfWidth(44, 146, 310)
                 .borderWidth(1)
                 .padding(5)
 
@@ -182,139 +182,164 @@ public class PricingSheetPdfGenerator {
         // Repo Table
         // ===============================
         Table repoTable = Table.builder()
-                .addColumnsOfWidth(30, 119,117,117,117)
+                .addColumnsOfWidth(44, 95, 48, 90, 43, 62, 118)
                 .borderWidth(1)
                 .padding(5)
                 .addRow(Row.builder()
                         .add(TextCell.builder().text("").backgroundColor(PEACH).build())
                         .add(TextCell.builder().text("Repo Rate").backgroundColor(PEACH).build())
-                        .add(TextCell.builder().text("").backgroundColor(PEACH).build())
+                        .add(TextCell.builder().text("").colSpan(2).backgroundColor(PEACH).build())
                         .add(TextCell.builder()
                                 .text("5.50")
                                 .backgroundColor(PEACH)
                                 .horizontalAlignment(HorizontalAlignment.RIGHT)
                                 .build())
-                        .add(TextCell.builder().text("").backgroundColor(PEACH).build())
+                        .add(TextCell.builder().text("").colSpan(2).backgroundColor(PEACH).build())
                         .build())
                 .build();
 
         Table spreadTable = Table.builder()
-                .addColumnsOfWidth(40, 160, 70, 80, 90, 60)
+                .addColumnsOfWidth(44, 95, 48, 90, 43, 62, 118)
                 .borderWidth(1)
                 .padding(5)
 
-                // ===== Row 1: SPREAD =====
+                // ================= ROW 1 : SPREAD =================
                 .addRow(Row.builder()
-                        // Col 1 (rowSpan)
+                        .add(TextCell.builder().text("SPREAD")
+                                .backgroundColor(LIGHTGREY)
+                                .fontSize(8)
+                                .build()) // C1
+                        .add(TextCell.builder()
+                                .text("Spread for Cost of Funds, ALM spread and operating costs")
+                                .colSpan(3) // C2–C4
+                                .build())
+                        .add(TextCell.builder()
+                                .text("2.85")
+                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .build()) // C5
+                        .add(TextCell.builder().text("").colSpan(2).build()) // C6
+                        .build())
+
+                // ================= ROW 2 : ADDITIONS / PD =================
+                .addRow(Row.builder()
                         .add(VerticalTextCell.builder()
                                 .text("Additions")
-                                .rowSpan(6)
+                                .rowSpan(6) // spans rows 2–6 ONLY
                                 .backgroundColor(LIGHTGREY)
                                 .horizontalAlignment(HorizontalAlignment.CENTER)
                                 .verticalAlignment(VerticalAlignment.MIDDLE)
                                 .font(FONT_BOLD)
                                 .fontSize(10)
-                                .build())
-                        // Col 2
-                        .add(TextCell.builder()
-                                .text("Spread for Cost of Funds, ALM spread and operating costs")
-                                .build())
-                        // Col 3–5
-                        .add(TextCell.builder().text("").colSpan(3).build())
-                        // Col 6
-                        .add(TextCell.builder()
-                                .text("2.85")
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
-                                .build())
-                        .build())
+                                .build()) // C1
 
-                // ===== Row 2: Credit Risk Premium – PD =====
-                .addRow(Row.builder()
-                        // Col 2 (rowSpan)
                         .add(TextCell.builder()
                                 .text("Credit Risk Premium")
                                 .rowSpan(2)
-                                .build())
-                        // Col 3
-                        .add(TextCell.builder().text("PD").build())
-                        // Col 4
+                                .build()) // C2
+
+                        .add(TextCell.builder().text("PD").build()) // C3
                         .add(TextCell.builder()
                                 .text("0.05%")
-                                .backgroundColor(Color.YELLOW)
-                                .build())
-                        // Col 5–6
-                        .add(TextCell.builder().text("").colSpan(2).build())
+                                .horizontalAlignment(HorizontalAlignment.CENTER)
+                                .backgroundColor(YELLOW)
+                                .build()) // C4
+                        .add(TextCell.builder().text("0.010").rowSpan(2)
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .build()) // C5
+                        .add(TextCell.builder().text("").colSpan(2).build()) // C6–C7
                         .build())
 
-                // ===== Row 3: Credit Risk Premium – LGD (FIXED) =====
+                // ================= ROW 3 : LGD =================
                 .addRow(Row.builder()
-                        // Col 3
-                        .add(TextCell.builder().text("LGD").build())
-                        // Col 4
+                        .add(TextCell.builder().text("LGD").build()) // C3
                         .add(TextCell.builder()
                                 .text("19.56%")
-                                .backgroundColor(Color.YELLOW)
-                                .build())
-                        // Col 5–6  ✅ MUST use colSpan
-                        .add(TextCell.builder()
-                                .text("")
-                                .colSpan(2)
-                                .build())
+                                .backgroundColor(YELLOW)
+                                .horizontalAlignment(HorizontalAlignment.CENTER)
+                                .build()) // C4
+                        .add(TextCell.builder().text("").colSpan(2).build()) // C5–C7
                         .build())
 
-                // ===== Row 4: Waiver =====
+                // ================= ROW 4 : WAIVER =================
                 .addRow(Row.builder()
-                        // Col 2 (rowSpan)
                         .add(TextCell.builder()
                                 .text("Credit Prem & Waiver / Additions")
                                 .rowSpan(2)
-                                .build())
-                        // Col 3
-                        .add(TextCell.builder().text("Waiver").build())
-                        // Col 4
+                                .build()) // C2
+                        .add(TextCell.builder()
+                                .text("Waiver")
+                                .rowSpan(2)
+                                .backgroundColor(YELLOW)
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .build()) // C3
                         .add(TextCell.builder()
                                 .text("0%")
-                                .backgroundColor(Color.YELLOW)
-                                .build())
-                        // Col 5–6
+                                .backgroundColor(YELLOW)
+                                .horizontalAlignment(HorizontalAlignment.CENTER)
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .build()) // C4
+                        .add(TextCell.builder()
+                                .text("0.001")
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .backgroundColor(YELLOW)
+                                .build()) // C5
                         .add(TextCell.builder()
                                 .text("Choose Reason")
-                                .colSpan(2)
+                                .build())
+                        .add(TextCell.builder()
+                                .text("Control Over Cash Flows")
                                 .build())
                         .build())
 
-                // ===== Row 5: Waiver Input (FIXED) =====
+                // ================= ROW 5 : WAIVER INPUT =================
                 .addRow(Row.builder()
-                        // Col 3–5
                         .add(TextCell.builder()
                                 .text("Please Type in Above Cell")
-                                .colSpan(3)
-                                .backgroundColor(new Color(255,230,150))
                                 .build())
-                        // Col 6
                         .add(TextCell.builder()
                                 .text("0.009")
+                                .backgroundColor(PEACH)
                                 .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .verticalAlignment(VerticalAlignment.MIDDLE)
+                                .build()) // C6
+                        .add(TextCell.builder()
+                                .text("")
+                                .build()) // C7
+                        .add(TextCell.builder()
+                                .text("")
                                 .build())
                         .build())
 
-                // ===== Row 6: Business Strategy =====
+                // ================= ROW 6 : EMBEDDED OPTIONS =================
                 .addRow(Row.builder()
-                        // Col 2
-                        .add(TextCell.builder().text("Business Strategy").build())
-                        // Col 3–5
-                        .add(TextCell.builder().text("").colSpan(3).build())
-                        // Col 6
+                        .add(TextCell.builder().text("Business Strategy")
+                                .verticalAlignment(VerticalAlignment.BOTTOM)
+                                .colSpan(3).rowSpan(2).build()) // C2
                         .add(TextCell.builder()
-                                .text("0")
+                                .text("0").rowSpan(2)
                                 .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .verticalAlignment(VerticalAlignment.BOTTOM)
                                 .build())
+                        .add(TextCell.builder()
+                                .text("Embedded options in the loan product")
+                                .backgroundColor(YELLOW)
+                                .colSpan(2)
+                                .build()) // C6–C7
+                        .build())
+
+                // ================= ROW 7 : BUSINESS STRATEGY (OUTSIDE Additions) =================
+                .addRow(Row.builder()// C5
+                        .add(TextCell.builder().text("").build()) // C6
+                        .add(TextCell.builder().text("").build()) // C7
                         .build())
 
                 .build();
 
+
         Table waiverTable = Table.builder()
-                .addColumnsOfWidth(40, 200,260)
+                .addColumnsOfWidth(44, 230,226)
                 .borderWidth(1)
                 .padding(5)
 
@@ -323,7 +348,7 @@ public class PricingSheetPdfGenerator {
                         .add(VerticalTextCell.builder()
                                 .text("Waivers / Reductions")
                                 .rowSpan(4)
-                                .fontSize(7)          // 🔑 key
+                                .fontSize(7)
                                 .padding(2)
                                 .backgroundColor(LIGHTGREY)
                                 .horizontalAlignment(HorizontalAlignment.CENTER)
@@ -336,7 +361,7 @@ public class PricingSheetPdfGenerator {
                                 .build())
                         .add(TextCell.builder()
                                 .text("0.00")
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .horizontalAlignment(HorizontalAlignment.LEFT)
                                 .build())
                         .build())
 
@@ -345,7 +370,7 @@ public class PricingSheetPdfGenerator {
                         .add(TextCell.builder().text("Discount for BIB").build())
                         .add(TextCell.builder()
                                 .text("0.00")
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .horizontalAlignment(HorizontalAlignment.LEFT)
                                 .build())
                         .build())
 
@@ -354,7 +379,7 @@ public class PricingSheetPdfGenerator {
                         .add(TextCell.builder().text("Discount for Opex").build())
                         .add(TextCell.builder()
                                 .text("1.30")
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .horizontalAlignment(HorizontalAlignment.LEFT)
                                 .build())
                         .build())
 
@@ -363,14 +388,14 @@ public class PricingSheetPdfGenerator {
                         .add(TextCell.builder().text("Business Strategy").build())
                         .add(TextCell.builder()
                                 .text("1.50")
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .horizontalAlignment(HorizontalAlignment.LEFT)
                                 .build())
                         .build())
 
                 .build();
 
         Table finalPricingTable = Table.builder()
-                .addColumnsOfWidth(40, 180, 120, 80, 80)
+                .addColumnsOfWidth(44, 230, 226)
                 .borderWidth(1)
                 .padding(5)
 
@@ -385,18 +410,11 @@ public class PricingSheetPdfGenerator {
                                 .font(FONT_BOLD)
                                 .backgroundColor(PEACH)
                                 .build())
-                        .add(TextCell.builder()
-                                .text("")
-                                .backgroundColor(PEACH)
-                                .build())
+
                         .add(TextCell.builder()
                                 .text("5.56")
                                 .font(FONT_BOLD)
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
-                                .backgroundColor(PEACH)
-                                .build())
-                        .add(TextCell.builder()
-                                .text("")
+                                .horizontalAlignment(HorizontalAlignment.LEFT)
                                 .backgroundColor(PEACH)
                                 .build())
                         .build())
@@ -416,17 +434,10 @@ public class PricingSheetPdfGenerator {
                                 .text("Repo Rate")
                                 .backgroundColor(BLUE)
                                 .build())
-                        .add(TextCell.builder()
-                                .text("")
-                                .backgroundColor(BLUE)
-                                .build())
+
                         .add(TextCell.builder()
                                 .text("5.50")
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
-                                .backgroundColor(BLUE)
-                                .build())
-                        .add(TextCell.builder()
-                                .text("")
+                                .horizontalAlignment(HorizontalAlignment.LEFT)
                                 .backgroundColor(BLUE)
                                 .build())
                         .build())
@@ -437,19 +448,13 @@ public class PricingSheetPdfGenerator {
                                 .text("Spread over Repo Rate")
                                 .backgroundColor(BLUE)
                                 .build())
-                        .add(TextCell.builder()
-                                .text("")
-                                .backgroundColor(BLUE)
-                                .build())
+
                         .add(TextCell.builder()
                                 .text("0.06")
-                                .horizontalAlignment(HorizontalAlignment.RIGHT)
+                                .horizontalAlignment(HorizontalAlignment.LEFT)
                                 .backgroundColor(BLUE)
                                 .build())
-                        .add(TextCell.builder()
-                                .text("")
-                                .backgroundColor(BLUE)
-                                .build())
+
                         .build())
 
                 .build();
