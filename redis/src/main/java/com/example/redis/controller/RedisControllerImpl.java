@@ -1,12 +1,22 @@
 package com.example.redis.controller;
 
+import com.example.redis.service.RedisService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Duration;
+
 @RestController
 @RequestMapping("/redis")
 public class RedisControllerImpl implements RedisController {
+
+    private final RedisService redisService;
+
+    public RedisControllerImpl(RedisService redisService) {
+        this.redisService = redisService;
+    }
 
     // ==========================
     // String Operations
@@ -14,32 +24,44 @@ public class RedisControllerImpl implements RedisController {
 
     @Override
     @PostMapping("/set")
-    public String setValue() {
-        return "";
+    public ResponseEntity<String> setValue() {
+        redisService.setValue("cache1", "loans");
+        return ResponseEntity.ok("Value stored successfully");
     }
 
     @Override
     @PostMapping("/get")
-    public String getValue() {
-        return "";
+    public ResponseEntity<String> getValue() {
+        Object value = redisService.getValue("cache1");
+
+        if (value == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(value.toString());
     }
 
     @Override
     @PostMapping("/delete")
-    public String deleteValue() {
-        return "";
+    public ResponseEntity<String> deleteValue() {
+        redisService.deleteValue("cache1");
+        return ResponseEntity.ok("Value deleted successfully");
     }
 
     @Override
     @PostMapping("/expire")
     public String expireValue() {
-        return "";
+        boolean result = redisService.expireValue("cache1", Duration.ofSeconds(60));
+
+        return result
+                ? "Key will expire in 60 seconds"
+                : "Key not found";
     }
 
     @Override
     @PostMapping("/ttl")
     public Long getTTL() {
-        return 0L;
+        return redisService.getTTL("cache1");
     }
 
     // ==========================
@@ -49,19 +71,29 @@ public class RedisControllerImpl implements RedisController {
     @Override
     @PostMapping("/hset")
     public String createUser() {
-        return "";
+
+        String key = "user:1";
+
+        redisService.hashSet(key, "name", "Naveen");
+        redisService.hashSet(key, "role", "Java Developer");
+        redisService.hashSet(key, "project", "Redis");
+
+        return "User created successfully";
     }
 
     @Override
     @PostMapping("/hget")
     public Object getUser() {
-        return null;
+        return redisService.hashGet("user:1");
     }
 
     @Override
     @PostMapping("/hdelete")
     public String deleteUser() {
-        return "";
+
+        redisService.hashDelete("user:1");
+
+        return "User deleted successfully";
     }
 
     // ==========================
@@ -71,19 +103,31 @@ public class RedisControllerImpl implements RedisController {
     @Override
     @PostMapping("/qadd")
     public String addToQueue() {
-        return "";
+
+        redisService.queueAdd("loan-1");
+        redisService.queueAdd("loan-2");
+        redisService.queueAdd("loan-3");
+
+        return "Items added to queue successfully";
     }
 
     @Override
     @PostMapping("/qget")
     public Object getQueue() {
-        return null;
+        return redisService.queueGet();
     }
 
     @Override
     @PostMapping("/qremove")
     public String removeFromQueue() {
-        return "";
+
+        Object value = redisService.queueRemove();
+
+        if (value == null) {
+            return "Queue is empty";
+        }
+
+        return "Removed: " + value;
     }
 
     // ==========================
@@ -93,13 +137,13 @@ public class RedisControllerImpl implements RedisController {
     @Override
     @PostMapping("/increment")
     public Long incrementCounter() {
-        return 0L;
+        return redisService.increment("counter");
     }
 
     @Override
     @PostMapping("/decrement")
     public Long decrementCounter() {
-        return 0L;
+        return redisService.decrement("counter");
     }
 
     // ==========================
@@ -109,13 +153,18 @@ public class RedisControllerImpl implements RedisController {
     @Override
     @PostMapping("/sadd")
     public String addToSet() {
-        return "";
+
+        redisService.setAdd("skills", "Java");
+        redisService.setAdd("skills", "Spring Boot");
+        redisService.setAdd("skills", "Redis");
+
+        return "Values added to set successfully";
     }
 
     @Override
     @PostMapping("/sget")
     public Object getSetMembers() {
-        return null;
+        return redisService.setMembers("skills");
     }
 
     // ==========================
@@ -125,13 +174,18 @@ public class RedisControllerImpl implements RedisController {
     @Override
     @PostMapping("/zadd")
     public String addScore() {
-        return "";
+
+        redisService.sortedSetAdd("leaderboard", "Naveen", 100);
+        redisService.sortedSetAdd("leaderboard", "John", 80);
+        redisService.sortedSetAdd("leaderboard", "David", 90);
+
+        return "Scores added successfully";
     }
 
     @Override
     @PostMapping("/zget")
     public Object getScores() {
-        return null;
+        return redisService.sortedSetGet("leaderboard");
     }
 
     // ==========================
@@ -141,12 +195,15 @@ public class RedisControllerImpl implements RedisController {
     @Override
     @PostMapping("/keys")
     public Object getAllKeys() {
-        return null;
+        return redisService.getAllKeys();
     }
 
     @Override
     @PostMapping("/flush")
     public String flushDatabase() {
-        return "";
+
+        redisService.flushDatabase();
+
+        return "Redis database flushed successfully";
     }
 }

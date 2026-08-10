@@ -1,13 +1,15 @@
 package com.example.redis.controller;
 
+import org.springframework.http.ResponseEntity;
+
 public interface RedisController {
 
     // String Operations
-    String setValue();
+    ResponseEntity<String> setValue();
 
-    String getValue();
+    ResponseEntity<String> getValue();
 
-    String deleteValue();
+    ResponseEntity<String> deleteValue();
 
     String expireValue();
 
