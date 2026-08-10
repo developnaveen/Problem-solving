@@ -1,5 +1,9 @@
 package com.example.redis.service;
 
+import org.springframework.data.redis.connection.stream.MapRecord;
+import org.springframework.data.redis.connection.stream.StreamOffset;
+import org.springframework.data.redis.connection.stream.StreamReadOptions;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -122,9 +126,51 @@ public class RedisService {
     }
 
     public void flushDatabase() {
-        redisTemplate.getConnectionFactory()
-                .getConnection()
-                .serverCommands()
-                .flushDb();
+        redisTemplate.getConnectionFactory().getConnection().serverCommands().flushDb();
+    }
+
+    // Publish message
+    public void publish(String channel, String message) {
+        redisTemplate.convertAndSend(channel, message);
+    }
+
+    public String addToStream(String streamKey, String loanId, String customer) {
+
+        Map<String, String> data = Map.of("loanId", loanId, "customer", customer);
+
+        MapRecord<String, String, String> record = MapRecord.create(streamKey, data);
+
+        return redisTemplate.opsForStream().add(record).getValue();
+    }
+
+    // Read all messages
+    public List<MapRecord<String, Object, Object>> readStream(String streamKey) {
+
+        return redisTemplate.opsForStream().read(StreamReadOptions.empty(), StreamOffset.fromStart(streamKey));
+    }
+
+    public List<Object> pipelineExample() {
+
+        return redisTemplate.executePipelined((RedisCallback<Object>) connection -> {
+
+            connection.stringCommands().set("name".getBytes(), "Naveen".getBytes());
+
+            connection.stringCommands().set("role".getBytes(), "Java Developer".getBytes());
+
+            connection.stringCommands().set("project".getBytes(), "Redis".getBytes());
+
+            return null;
+        });
+    }
+
+    public boolean acquireLock(String lockKey, String lockValue, Duration duration) {
+
+        Boolean acquired = redisTemplate.opsForValue().setIfAbsent(lockKey, lockValue, duration);
+
+        return Boolean.TRUE.equals(acquired);
+    }
+
+    public void releaseLock(String lockKey) {
+        redisTemplate.delete(lockKey);
     }
 }

@@ -53,9 +53,7 @@ public class RedisControllerImpl implements RedisController {
     public String expireValue() {
         boolean result = redisService.expireValue("cache1", Duration.ofSeconds(60));
 
-        return result
-                ? "Key will expire in 60 seconds"
-                : "Key not found";
+        return result ? "Key will expire in 60 seconds" : "Key not found";
     }
 
     @Override
@@ -205,5 +203,47 @@ public class RedisControllerImpl implements RedisController {
         redisService.flushDatabase();
 
         return "Redis database flushed successfully";
+    }
+
+
+    @PostMapping("/publish")
+    public String publishMessage() {
+
+        redisService.publish("loan-channel", "New loan application received");
+
+        return "Message published successfully";
+    }
+
+    @PostMapping("/stream/add")
+    public String addStreamMessage() {
+
+        return redisService.addToStream("loan-stream", "101", "Naveen");
+    }
+
+    @PostMapping("/stream/get")
+    public Object getStreamMessages() {
+
+        return redisService.readStream("loan-stream");
+    }
+
+    @PostMapping("/pipeline")
+    public Object pipeline() {
+        return redisService.pipelineExample();
+    }
+
+    @PostMapping("/lock/acquire")
+    public String acquireLock() {
+
+        boolean acquired = redisService.acquireLock("lock:loan:101", "worker-1", Duration.ofSeconds(30));
+
+        return acquired ? "Lock acquired" : "Lock already held";
+    }
+
+    @PostMapping("/lock/release")
+    public String releaseLock() {
+
+        redisService.releaseLock("lock:loan:101");
+
+        return "Lock released";
     }
 }
